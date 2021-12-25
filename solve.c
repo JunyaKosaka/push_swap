@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 00:12:12 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/25 19:44:15 by jkosaka          ###   ########.fr       */
+/*   Updated: 2021/12/26 00:46:25 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,8 @@ int	solve(int n, int *arr)
 	// show(info);
 	// show_ans(ans);
 	ans = compress_ans(ans);
+	ans = compress_ans(ans);
 	ans = compress_ans(ans); // 複数回やらないと完全にはならない
-	show_ans(ans);
+	// show_ans(ans);
 	return (ft_dlst_size(ans));
 }

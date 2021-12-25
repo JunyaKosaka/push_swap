@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:46:52 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/25 20:14:43 by jkosaka          ###   ########.fr       */
+/*   Updated: 2021/12/26 00:47:10 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,31 +31,31 @@ static int	*create_random_arr(int n)
 	return (arr);
 }
 
-// 本番用
-int	main(int argc, char *argv[])
-{
-	push_swap(argc, argv);
-	return (0);
-}
-
-// int	main()
+// // 本番用
+// int	main(int argc, char *argv[])
 // {
-// 	int		i;
-// 	int		trial = 1;
-// 	long	result;
-// 	int		len = 10;
-
-// 	i = 0;
-// 	result = 0;
-// 	srand(time(NULL));
-// 	while (i < trial)
-// 	{
-// 		int *arr = create_random_arr(len);
-// 		result += solve(len, arr);
-// 		i++;
-// 	}
-// 	// printf("average is %ld\n", result / trial);
-// 	// printf("trial is %d\n", trial);
-// 	// printf("len is %d\n", len);
+// 	push_swap(argc, argv);
 // 	return (0);
 // }
+
+int	main()
+{
+	int		i;
+	int		trial = 10;
+	long	result;
+	int		len = 100;
+
+	i = 0;
+	result = 0;
+	srand(time(NULL));
+	while (i < trial)
+	{
+		int *arr = create_random_arr(len);
+		result += solve(len, arr);
+		i++;
+	}
+	printf("average is %ld\n", result / trial);
+	printf("trial is %d\n", trial);
+	printf("len is %d\n", len);
+	return (0);
+}
