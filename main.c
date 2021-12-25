@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:46:52 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/25 19:46:56 by jkosaka          ###   ########.fr       */
+/*   Updated: 2021/12/25 20:14:43 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 static int	*create_random_arr(int n)
 {
-	int	i;
 	int	j;
 	int	*arr;
 	int	t;
