@@ -6,12 +6,19 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:46:52 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/26 00:47:10 by jkosaka          ###   ########.fr       */
+/*   Updated: 2021/12/26 12:44:39 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <time.h>
+
+// // 本番用
+// int	main(int argc, char *argv[])
+// {
+// 	push_swap(argc, argv);
+// 	return (0);
+// }
 
 static int	*create_random_arr(int n)
 {
@@ -31,19 +38,13 @@ static int	*create_random_arr(int n)
 	return (arr);
 }
 
-// // 本番用
-// int	main(int argc, char *argv[])
-// {
-// 	push_swap(argc, argv);
-// 	return (0);
-// }
-
 int	main()
 {
 	int		i;
-	int		trial = 10;
+	int		trial = 1000;
 	long	result;
 	int		len = 100;
+	int		max = 0;
 
 	i = 0;
 	result = 0;
@@ -51,10 +52,14 @@ int	main()
 	while (i < trial)
 	{
 		int *arr = create_random_arr(len);
-		result += solve(len, arr);
+		int temp = solve(len, arr);
+		if (temp > max)
+			max = temp;
+		result += temp;
 		i++;
 	}
 	printf("average is %ld\n", result / trial);
+	printf("max is %d\n", max);
 	printf("trial is %d\n", trial);
 	printf("len is %d\n", len);
 	return (0);

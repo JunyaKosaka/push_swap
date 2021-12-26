@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 00:12:12 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/26 00:46:25 by jkosaka          ###   ########.fr       */
+/*   Updated: 2021/12/26 12:41:30 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,32 +49,33 @@ t_info	*init_stack(int n, int *arr, t_dlst **ans)
 static int	*set_wall_five(int *wall, int n)
 {
 	wall = (int *)malloc(sizeof(int) * 6);
-	// wall[0] = 0;
-	// wall[1] = 16; // 16;
-	// wall[2] = 33;
-	// wall[3] = 65;
-	// wall[4] = 97;
-	// wall[5] = n;
 	int i = -1;
 	while (++i < 6)
 		wall[i] = n / 5 * i;
+	int	diff = 10;
+	wall[3] -= diff - 3;
+	wall[4] += diff + 3;
+	wall[1] = 20;
+	wall[2] = 40;
+	wall[3] = 53;
+	wall[4] = 93;
 	return (wall);
 }
 
-// static void	divide_five_block(t_info *info, t_dlst **ans, int *wall)
-// {
-// 	int	len;
+static void	divide_five_block(t_info *info, t_dlst **ans, int *wall)
+{
+	int	len;
 
-// 	set_border_a(info, wall[3], wall[4]);
-// 	set_border_b(info, wall[0], wall[1]);
-// 	divide_a_to_b(info->total, info, ans);
-// 	// aからbへ１回目の移動が完了
-// 	set_border_a(info, wall[4], wall[5]);
-// 	set_border_b(info, wall[1], wall[2]);
-// 	len = info->total - wall[1] - (wall[4] - wall[3]);
-// 	divide_b_to_a(len, info, ans);
-// 	// bからaへ２回目の移動が完了
-// }
+	set_border_a(info, wall[3], wall[4]);
+	set_border_b(info, wall[0], wall[1]);
+	divide_a_to_b(info->total, info, ans);
+	// aからbへ１回目の移動が完了
+	set_border_a(info, wall[4], wall[5]);
+	set_border_b(info, wall[1], wall[2]);
+	len = info->total - wall[1] - (wall[4] - wall[3]);
+	divide_b_to_a(len, info, ans);
+	// bからaへ２回目の移動が完了
+}
 
 int	solve(int n, int *arr)
 {
@@ -91,15 +92,8 @@ int	solve(int n, int *arr)
 	wall = set_wall_five(wall, n);
 	// show(info);
 
-	// divide_five_block(info, &ans, wall);
-	set_border_a(info, wall[3], wall[4]);
-	set_border_b(info, wall[0], wall[1]);
-	divide_a_to_b(info->total, info, &ans);
-	// aからbへ１回目の移動が完了
-	set_border_a(info, wall[4], wall[5]);
-	set_border_b(info, wall[1], wall[2]);
-	len = info->total - wall[1] - (wall[4] - wall[3]);
-	divide_b_to_a(len, info, &ans);
+	divide_five_block(info, &ans, wall);
+	
 	push_b_to_a(info, &ans);
 	i = 3;
 	while (i <= 5)
@@ -111,7 +105,6 @@ int	solve(int n, int *arr)
 	}
 	// show(info);
 	// show_ans(ans);
-	ans = compress_ans(ans);
 	ans = compress_ans(ans);
 	ans = compress_ans(ans); // 複数回やらないと完全にはならない
 	// show_ans(ans);

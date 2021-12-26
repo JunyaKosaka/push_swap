@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:47:50 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/25 19:47:52 by jkosaka          ###   ########.fr       */
+/*   Updated: 2021/12/26 11:28:00 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <limits.h>
 # include <assert.h> // assertを後で消す
 # include "./libft/libft.h"
+# include "./printf/ft_printf.h"
 
 enum operator {
 	SA = 1,

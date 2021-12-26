@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:47:06 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/25 19:47:10 by jkosaka          ###   ########.fr       */
+/*   Updated: 2021/12/26 12:45:37 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	push_a_to_b(int len, t_info *info, t_dlst **ans)
 	long	border;
 
 	sum = cal_last_sum(len, info->a);
-	border = sum / len - (len / 7);
+	border = sum / len - 4;
 	i = 0;
 	while (i < len && info->a->next->value != -1)
 	{

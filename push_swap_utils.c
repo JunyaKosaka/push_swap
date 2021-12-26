@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 00:09:37 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/25 19:43:30 by jkosaka          ###   ########.fr       */
+/*   Updated: 2021/12/26 11:30:24 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ void	show_ans(t_dlst	*lst)
 	char	*s[] = {"", "sa", "sb", "ss", "pa", "pb", "ra", "rb", "rr", "rra", "rrb", "rrr"};
 	while (cur->value != -1)
 	{
-		printf("%s\n", s[cur->value]);
+		ft_printf("%s\n", s[cur->value]);
 		cur = cur->next;
 	}
 }
