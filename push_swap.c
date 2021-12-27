@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:47:43 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/26 19:42:38 by jkosaka          ###   ########.fr       */
+/*   Updated: 2021/12/27 15:03:58 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,16 @@ static int	is_error(int argc, char *argv[])
 	return (0);
 }
 
+void	*free_int_arr(int **arr)
+{
+	if (arr)
+	{
+		free(*arr);
+		*arr = NULL;
+	}
+	return (NULL);
+}
+
 int	push_swap(int argc, char *argv[])
 {
 	int	*arr;
@@ -54,12 +64,11 @@ int	push_swap(int argc, char *argv[])
 		arr[i] = find_index(n, sorted_arr, arr[i]);
 		i++;
 	}
-	free(sorted_arr);
-	sorted_arr = NULL;
+	free_int_arr(&sorted_arr);
 	i = 0;
 	result = solve(n, arr);
-	free(arr);
-	arr = NULL;
-	printf("arr_malloc_size is %zu\n", malloc_size(arr));
+	if (result == -1)
+		return (error_handler());
+	free_int_arr(&arr);
 	return (0);
 }

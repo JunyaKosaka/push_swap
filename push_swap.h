@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:47:50 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/26 18:27:43 by jkosaka          ###   ########.fr       */
+/*   Updated: 2021/12/27 15:36:34 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <limits.h>
+# include <stdlib.h>
 # include <assert.h> // assertを後で消す
 # include <malloc/malloc.h>
 # include "./libft/libft.h"
@@ -26,12 +27,13 @@ enum operator {
 	SS, // 3 ok
 	PA,
 	PB,
-	RA, // 6 例外処理
+	PASS, // 6 例外処理
+	RA,
 	RB,
-	RR, // 8 ok
+	RR, // 9 ok
 	RRA,
 	RRB,
-	RRR, // 11 ok
+	RRR, // 9 ok
 };
 
 typedef struct s_dlst
@@ -55,6 +57,8 @@ typedef struct s_info
 }				t_info;
 
 int		push_swap(int argc, char *argv[]);
+void	*free_int_arr(int **arr);
+void	free_info(t_info *info);
 int		error_handler(void);
 int		*ft_bubble_sort(int n, int *a);
 void	ft_swap(int *x, int *y);

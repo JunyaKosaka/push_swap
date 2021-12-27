@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 00:09:37 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/26 18:04:46 by jkosaka          ###   ########.fr       */
+/*   Updated: 2021/12/27 15:58:35 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	error_handler(void)
 	write(2, "Error\n", 6);
 	return (1);
 }
+
+
 
 void	ft_swap(int *x, int *y)
 {
@@ -115,7 +117,7 @@ void	show_ans(t_dlst	*lst)
 
 	cur = lst;
 	cur = cur->next;
-	char	*s[] = {"", "sa", "sb", "ss", "pa", "pb", "ra", "rb", "rr", "rra", "rrb", "rrr"};
+	char	*s[] = {"", "sa", "sb", "ss", "pa", "pb", "pass", "ra", "rb", "rr", "rra", "rrb", "rrr"};
 	while (cur->value != -1)
 	{
 		ft_printf("%s\n", s[cur->value]);
@@ -145,12 +147,7 @@ static int	convert(int x, int y)
 	return ((x + y + 1) / 2 + 1);
 }
 
-static int compress_cand(int nv)
-{
-	return (nv == 3 || nv == 6 || nv == 8 || nv == 11);
-}
-
-t_dlst	*compress_ans(t_dlst *ans)
+static t_dlst	*compress_ans_one(t_dlst *ans)
 {
 	int		new_value;
 	t_dlst	*new_ans;
@@ -163,9 +160,9 @@ t_dlst	*compress_ans(t_dlst *ans)
 	{
 		next = ans->next;
 		new_value = convert(ans->value, next->value);
-		if (compress_cand(new_value) && diff(ans->value, next->value) == 1)
+		if (new_value % 3 == 0 && diff(ans->value, next->value) == 1)
 		{
-			if (new_value != 6)
+			if (new_value != PASS)
 				ft_dlst_addback(&new_ans, ft_dlst_new(new_value));
 			ans = next->next;
 		}		
@@ -175,10 +172,18 @@ t_dlst	*compress_ans(t_dlst *ans)
 			ans = next;
 		}
 	}
-	// printf("anssize is %d\n", ft_dlst_size(ans));
-	// printf("new_anssize is %d\n", ft_dlst_size(new_ans));
 	while (ans->value != -1)
 		ans = ans->next;
-	// ft_dlst_clear(&ans); // 要修正
+	ft_dlst_clear(&ans);
 	return (new_ans);
+}
+
+t_dlst	*compress_ans(t_dlst *ans)
+{
+	int		i;
+
+	i = -1;
+	while (++i < 5)
+		ans = compress_ans_one(ans);
+	return (ans);
 }
