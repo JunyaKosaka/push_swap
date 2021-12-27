@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:47:43 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/27 15:03:58 by jkosaka          ###   ########.fr       */
+/*   Updated: 2021/12/27 17:15:38 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,12 @@ static int	is_error(int argc, char *argv[])
 		j = 0;
 		while (argv[i][j])
 		{
-			// atoiに失敗するかどうか
 			if (!ft_isdigit(argv[i][j]))
 				return (1);
 			j++;
 		}
+		if (ft_atoi(argv[i]) == LONG_MAX)
+			return (1);
 		i++;
 	}
 	return (0);
@@ -57,7 +58,14 @@ int	push_swap(int argc, char *argv[])
 	if (argc == 1)
 		return (0);
 	arr = convert_to_int(n, argv);
+	if (!arr)
+		return (error_handler());
 	sorted_arr = ft_bubble_sort(n, arr);
+	if (!sorted_arr)
+	{
+		free_int_arr(&arr);
+		return (error_handler());
+	}
 	i = 0;
 	while (i < n)
 	{

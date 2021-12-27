@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 00:09:37 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/27 15:58:35 by jkosaka          ###   ########.fr       */
+/*   Updated: 2021/12/27 17:23:20 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ int	error_handler(void)
 	write(2, "Error\n", 6);
 	return (1);
 }
-
-
 
 void	ft_swap(int *x, int *y)
 {
@@ -37,6 +35,8 @@ int	*ft_bubble_sort(int n, int *a)
 
 	i = -1;
 	ret = (int *)malloc(sizeof(int) * n);
+	if (!ret)
+		return (NULL);
 	while (++i < n)
 		ret[i] = a[i];
 	i = 0;
@@ -62,6 +62,8 @@ int	*convert_to_int(int n, char *argv[])
 
 	i = -1;
 	ret = (int *)malloc(sizeof(int) * (n - 1));
+	if (!ret)
+		return (NULL);
 	while (++i < n)
 		ret[i] = ft_atoi(argv[i + 1]);
 	return (ret);

@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 00:12:12 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/27 15:56:02 by jkosaka          ###   ########.fr       */
+/*   Updated: 2021/12/27 17:22:33 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,18 @@ t_info	*init_stack(int total_len, int *arr, t_dlst **ans)
 int	*set_wall_five(int n)
 {
 	int	*wall;
+	int i;
 
 	wall = (int *)malloc(sizeof(int) * 6);
-	int i = -1;
+	if (!wall)
+		return (NULL);
+	i = -1;
 	while (++i < 6)
 		wall[i] = n / 5 * i;
-	if (n > 90) {
+	if (n > 90)
+	{
 		wall[3] -= n / 14; // 53
-		wall[4] += n / 7;  // 93	
+		wall[4] += n / 7;  // 93
 	}
 	return (wall);
 }
@@ -87,17 +91,24 @@ void	divide_five_block(t_info *info, t_dlst **ans, int *wall)
 
 void	free_info(t_info *info)
 {
+	if (!info)
+		return ;
 	ft_dlst_clear(&(info->a));
 	ft_dlst_clear(&(info->b));
 	free(info);
 	info = NULL;
 }
 
-// int	free_all(t_info *info, t_dlst **ans, int**arr)
-// {
-	
-// 	return (-1);
-// }
+int	free_all(t_info *info, t_dlst *ans, int **arr)
+{
+	if (info)
+		free_info(info);
+	if (ans)
+		ft_dlst_clear(&ans);
+	if (arr)
+		free_int_arr(arr);
+	return (-1);
+}
 
 int	solve(int total_len, int *arr)
 {
@@ -110,12 +121,12 @@ int	solve(int total_len, int *arr)
 	if (ft_is_sorted(total_len, arr))
 		return (0);
 	info = init_stack(total_len, arr, &ans);
-	// if (!info)
-	// 	return (free_all(info, ans, wall));
-	show(info);
+	if (!info)
+		return (free_all(info, ans, &wall));
 	wall = set_wall_five(total_len);
+	if (!wall)
+		return (free_all(info, ans, &wall));
 	divide_five_block(info, &ans, wall);
-	
 	push_b_to_a(info, &ans);
 	i = 3;
 	while (i <= 5)
@@ -125,12 +136,9 @@ int	solve(int total_len, int *arr)
 		push_b_to_a(info, &ans);
 		i++;
 	}
-	free_info(info);
-	// ans = compress_ans(ans);
-	ans = compress_ans(ans); // 複数回やらないと完全にはならない
-	show_ans(ans);
+	ans = compress_ans(ans);
+	// show_ans(ans);
 	len = ft_dlst_size(ans);
-	ft_dlst_clear(&ans);
-	free_int_arr(&wall);
+	free_all(info, ans, &wall);
 	return (len);
 }
