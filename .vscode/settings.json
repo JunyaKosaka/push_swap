@@ -4,5 +4,8 @@
 		"push",
 		"swap",
 		"utils"
-	]
+	],
+	"files.associations": {
+		"algorithm": "c"
+	}
 }

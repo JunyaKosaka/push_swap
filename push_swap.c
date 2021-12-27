@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:47:43 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/27 18:22:36 by jkosaka          ###   ########.fr       */
+/*   Updated: 2021/12/28 02:08:08 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,6 @@ static int	is_error(int argc, char *argv[])
 	return (0);
 }
 
-void	*free_int_arr(int **arr)
-{
-	if (arr)
-	{
-		free(*arr);
-		*arr = NULL;
-	}
-	return (NULL);
-}
-
 static int	*convert_to_int(int n, char *argv[])
 {
 	int	i;
@@ -58,33 +48,51 @@ static int	*convert_to_int(int n, char *argv[])
 	return (ret);
 }
 
-int	push_swap(int argc, char *argv[])
+static int	*compress_arr(int n, int *arr)
 {
-	int	*arr;
 	int	*sorted_arr;
-	int	n;
 	int	i;
-	int	result;
 
-	n = argc - 1;
-	if (is_error(argc, argv))
-		return (error_handler());
-	if (argc == 1)
-		return (0);
-	arr = convert_to_int(n, argv);
-	if (!arr)
-		return (error_handler());
 	sorted_arr = ft_bubble_sort(n, arr);
 	if (!sorted_arr)
 	{
 		free_int_arr(&arr);
-		return (error_handler());
+		error_handler();
+		return (NULL);
 	}
 	i = -1;
 	while (++i < n)
 		arr[i] = find_index(n, sorted_arr, arr[i]);
 	free_int_arr(&sorted_arr);
-	result = solve(n, arr);
+	return (arr);
+}
+
+int	solve(int total_len, int *arr)
+{
+	if (total_len < 200)
+		return (solve_five(total_len, arr));
+	else
+		return (solve_13(total_len, arr));
+}
+
+int	push_swap(int argc, char *argv[])
+{
+	int	*arr;
+	int	total_len;
+	int	result;
+
+	total_len = argc - 1;
+	if (is_error(argc, argv))
+		return (error_handler());
+	if (argc == 1)
+		return (0);
+	arr = convert_to_int(total_len, argv);
+	if (!arr)
+		return (error_handler());
+	arr = compress_arr(total_len, arr);
+	if (!arr)
+		return (1);
+	result = solve(total_len, arr);
 	if (result == -1)
 		return (error_handler());
 	free_int_arr(&arr);

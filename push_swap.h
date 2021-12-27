@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:47:50 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/27 18:10:15 by jkosaka          ###   ########.fr       */
+/*   Updated: 2021/12/28 01:42:36 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ enum operator {
 	RR, // 9 ok
 	RRA,
 	RRB,
-	RRR, // 9 ok
+	RRR, // 12 ok
 };
 
 typedef struct s_dlst
@@ -58,13 +58,18 @@ typedef struct s_info
 
 int		push_swap(int argc, char *argv[]);
 void	*free_int_arr(int **arr);
+int		free_all_info(t_info *info, t_dlst *ans, int **arr);
 void	free_info(t_info *info);
 int		error_handler(void);
 int		*ft_bubble_sort(int n, int *a);
 void	ft_swap(int *x, int *y);
-// int		*convert_to_int(int n, char *argv[]);
 int		find_index(int n, int *arr, int value);
-int		solve(int n, int *arr);
+int		solve(int total_len, int *arr);
+int		solve_five(int n, int *arr);
+int		solve_13(int total_len, int *arr);
+int		solve_9(int total_len, int *arr);
+int		ft_is_sorted(int n, int *arr);
+t_info	*init_stack(int total_len, int *arr, t_dlst **ans);
 t_dlst	*ft_dlst_last(t_dlst *lst);
 void	ft_dlst_addback(t_dlst **lst, t_dlst *new);
 t_dlst	*ft_dlst_popback(t_dlst **lst);
@@ -85,15 +90,16 @@ void	rr(t_info *info, t_dlst **ans);
 void	rra(t_info *info, t_dlst **ans);
 void	rrb(t_info *info, t_dlst **ans);
 void	rrr(t_info *info, t_dlst **ans);
-void	push_a_to_b(int len, t_info *info, t_dlst **ans);
+int		push_a_to_b(int len, t_info *info, t_dlst **ans);
 void	push_b_to_a(t_info *info, t_dlst **ans);
+// void	quick_sort_b(int len, t_info *info, t_dlst **ans);
 int		isin(int border[2], int x);
 void	set_border_a(t_info *info, int a, int b);
 void	divide_a_to_b(int len, t_info *info, t_dlst **ans);
 void	divide_b_to_a(int len, t_info *info, t_dlst **ans);
 void	set_border_b(t_info *info, int a, int b);
 t_dlst	*compress_ans(t_dlst *ans);
-
+long	cal_last_sum(int len, t_dlst *a);
 void	show_one(t_dlst	*lst);
 void	show_ans(t_dlst	*lst);
 void	show(t_info *info);

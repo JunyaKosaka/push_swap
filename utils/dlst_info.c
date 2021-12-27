@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 17:49:33 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/27 17:49:58 by jkosaka          ###   ########.fr       */
+/*   Updated: 2021/12/27 19:46:08 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,3 @@ int	dlst_back(t_dlst *a)
 {
 	return (a->prev->value);
 }
-

@@ -1,47 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/27 17:59:38 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/27 19:45:46 by jkosaka          ###   ########.fr       */
+/*   Created: 2021/12/27 19:35:41 by jkosaka           #+#    #+#             */
+/*   Updated: 2021/12/27 19:49:32 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	error_handler(void)
+void	free_info(t_info *info)
 {
-	write(2, "Error\n", 6);
-	return (1);
+	if (!info)
+		return ;
+	ft_dlst_clear(&(info->a));
+	ft_dlst_clear(&(info->b));
+	free(info);
+	info = NULL;
 }
 
-void	ft_swap(int *x, int *y)
+int	free_all_info(t_info *info, t_dlst *ans, int **arr)
 {
-	int	temp;
-
-	temp = *x;
-	*x = *y;
-	*y = temp;
-}
-
-int	find_index(int n, int *arr, int value)
-{
-	int	i;
-
-	i = 0;
-	while (i < n)
-	{
-		if (arr[i] == value)
-			return (i);
-		i++;
-	}
+	if (info)
+		free_info(info);
+	if (ans)
+		ft_dlst_clear(&ans);
+	if (arr)
+		free_int_arr(arr);
 	return (-1);
 }
 
-int	isin(int border[2], int x)
+void	*free_int_arr(int **arr)
 {
-	return (border[0] <= x && x < border[1]);
+	if (arr)
+	{
+		free(*arr);
+		*arr = NULL;
+	}
+	return (NULL);
 }

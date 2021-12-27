@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 17:55:16 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/27 17:55:58 by jkosaka          ###   ########.fr       */
+/*   Updated: 2021/12/27 19:46:20 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,3 @@ t_dlst	*compress_ans(t_dlst *ans)
 		ans = compress_ans_one(ans);
 	return (ans);
 }
-
