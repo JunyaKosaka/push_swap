@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:47:29 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/25 19:47:32 by jkosaka          ###   ########.fr       */
+/*   Updated: 2021/12/27 02:09:24 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,12 +68,14 @@ void	ft_dlst_clear(t_dlst **lst)
 	if (!lst)
 		return ;
 	cur = *lst;
-	while (cur)
+	cur = cur->next;
+	while (cur->value != -1)
 	{
 		prev = cur;
 		cur = cur->next;
-		ft_dlst_delone(prev);
+		free(prev);
 	}
+	free(cur);
 	*lst = NULL;
 }
 

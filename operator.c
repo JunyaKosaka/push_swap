@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:47:17 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/25 19:47:19 by jkosaka          ###   ########.fr       */
+/*   Updated: 2021/12/26 14:34:18 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	sa(t_info *info, t_dlst **ans)
 {
 	t_dlst	*new;
 
-	if (ft_dlst_size(info->a) <= 1)
+	if (info->a_size <= 1)
 		return ;
 	new = ft_dlst_new(SA);
 	ft_dlst_addback(ans, new);
@@ -37,7 +37,7 @@ void	sb(t_info *info, t_dlst **ans)
 {
 	t_dlst	*new;
 
-	if (ft_dlst_size(info->b) <= 1)
+	if (info->b_size <= 1)
 		return ;
 	new = ft_dlst_new(SB);
 	ft_dlst_addback(ans, new);
@@ -48,7 +48,7 @@ void	ss(t_info *info, t_dlst **ans)
 {
 	t_dlst	*new;
 
-	if (ft_dlst_size(info->a) <= 1 || ft_dlst_size(info->b) <= 1)
+	if (info->a_size <= 1 || info->b_size <= 1)
 		return ;
 	new = ft_dlst_new(SS);
 	ft_dlst_addback(ans, new);
@@ -67,6 +67,8 @@ void	pa(t_info *info, t_dlst **ans)
 	ft_dlst_addback(ans, new);
 	last = ft_dlst_popback(&(info->b));
 	ft_dlst_addback(&(info->a), last);
+	info->a_size++;
+	info->b_size--;
 }
 
 void	pb(t_info *info, t_dlst **ans)
@@ -80,6 +82,8 @@ void	pb(t_info *info, t_dlst **ans)
 	ft_dlst_addback(ans, new);
 	last = ft_dlst_popback(&(info->a));
 	ft_dlst_addback(&(info->b), last);
+	info->b_size++;
+	info->a_size--;
 }
 
 void	ra(t_info *info, t_dlst **ans)
@@ -87,7 +91,7 @@ void	ra(t_info *info, t_dlst **ans)
 	t_dlst	*new;
 	t_dlst	*last;
 
-	if (ft_dlst_size(info->a) <= 1)
+	if (info->a_size <= 1)
 		return ;
 	new = ft_dlst_new(RA);
 	ft_dlst_addback(ans, new);
@@ -101,7 +105,7 @@ void	rb(t_info *info, t_dlst **ans)
 	t_dlst	*new;
 	t_dlst	*last;
 
-	if (ft_dlst_size(info->b) <= 1)
+	if (info->b_size <= 1)
 		return ;
 	new = ft_dlst_new(RB);
 	ft_dlst_addback(ans, new);
@@ -115,7 +119,7 @@ void	rr(t_info *info, t_dlst **ans)
 	t_dlst	*new;
 	t_dlst	*last;
 
-	if (ft_dlst_size(info->a) == 0 || ft_dlst_size(info->b) == 0)
+	if (info->a_size == 0 || info->b_size == 0)
 		return ;
 	new = ft_dlst_new(RR);
 	ft_dlst_addback(ans, new);
@@ -132,7 +136,7 @@ void	rra(t_info *info, t_dlst **ans)
 	t_dlst	*new;
 	t_dlst	*begin;
 
-	if (ft_dlst_size(info->a) <= 1)
+	if (info->a_size <= 1)
 		return ;
 	new = ft_dlst_new(RRA);
 	ft_dlst_addback(ans, new);
@@ -146,7 +150,7 @@ void	rrb(t_info *info, t_dlst **ans)
 	t_dlst	*new;
 	t_dlst	*begin;
 
-	if (ft_dlst_size(info->b) <= 1)
+	if (info->b_size <= 1)
 		return ;
 	new = ft_dlst_new(RRB);
 	ft_dlst_addback(ans, new);
@@ -160,7 +164,7 @@ void	rrr(t_info *info, t_dlst **ans)
 	t_dlst	*new;
 	t_dlst	*begin;
 
-	if (ft_dlst_size(info->a) == 0 || ft_dlst_size(info->b) == 0)
+	if (info->a_size == 0 || info->b_size == 0)
 		return ;
 	new = ft_dlst_new(RRR);
 	ft_dlst_addback(ans, new);

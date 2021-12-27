@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 00:12:12 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/26 12:41:30 by jkosaka          ###   ########.fr       */
+/*   Updated: 2021/12/27 00:44:48 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_is_sorted(int n, int *arr)
 	return (1);
 }
 
-t_info	*init_stack(int n, int *arr, t_dlst **ans)
+t_info	*init_stack(int total_len, int *arr, t_dlst **ans)
 {
 	t_info	*info;
 	t_dlst	*new;
@@ -34,35 +34,35 @@ t_info	*init_stack(int n, int *arr, t_dlst **ans)
 	info = (t_info *)malloc(sizeof(t_info));
 	info->a = ft_dlst_new(-1); // sentinel
 	info->b = ft_dlst_new(-1);
-	info->total = n;
+	info->total = total_len;
 	info->target = 0;
-	while (n--)
+	info->a_size = total_len;
+	info->b_size = 0;
+	while (total_len--)
 	{
-		new = ft_dlst_new(*(arr + n));
+		new = ft_dlst_new(*(arr + total_len));
 		ft_dlst_addback(&(info->a), new);
 	}
-	*ans = NULL;
 	*ans = ft_dlst_new(-1);
+	// free(new);
+	// new = NULL;
 	return (info);
 }
 
-static int	*set_wall_five(int *wall, int n)
+int	*set_wall_five(int *wall, int n)
 {
 	wall = (int *)malloc(sizeof(int) * 6);
 	int i = -1;
 	while (++i < 6)
 		wall[i] = n / 5 * i;
-	int	diff = 10;
-	wall[3] -= diff - 3;
-	wall[4] += diff + 3;
-	wall[1] = 20;
-	wall[2] = 40;
-	wall[3] = 53;
-	wall[4] = 93;
+	if (n > 90) {
+		wall[3] -= n / 14; // 53
+		wall[4] += n / 7;  // 93	
+	}
 	return (wall);
 }
 
-static void	divide_five_block(t_info *info, t_dlst **ans, int *wall)
+void	divide_five_block(t_info *info, t_dlst **ans, int *wall)
 {
 	int	len;
 
@@ -77,7 +77,7 @@ static void	divide_five_block(t_info *info, t_dlst **ans, int *wall)
 	// bからaへ２回目の移動が完了
 }
 
-int	solve(int n, int *arr)
+int	solve(int total_len, int *arr)
 {
 	t_info	*info;
 	t_dlst	*ans;
@@ -85,13 +85,15 @@ int	solve(int n, int *arr)
 	int		i;
 	int		*wall;
 
-	if (ft_is_sorted(n, arr))
+	if (ft_is_sorted(total_len, arr))
 		return (0);
-	info = init_stack(n, arr, &ans);
+	info = init_stack(total_len, arr, &ans);
+	printf("a_malloc_size is %zu\n", malloc_size(info->a));
+	printf("b_malloc_size is %zu\n", malloc_size(info->b));
+	printf("info_malloc_size is %zu\n", malloc_size(info));
 	wall = NULL;
-	wall = set_wall_five(wall, n);
+	wall = set_wall_five(wall, total_len);
 	// show(info);
-
 	divide_five_block(info, &ans, wall);
 	
 	push_b_to_a(info, &ans);
@@ -103,10 +105,22 @@ int	solve(int n, int *arr)
 		push_b_to_a(info, &ans);
 		i++;
 	}
-	// show(info);
-	// show_ans(ans);
+	ft_dlst_clear(&(info->a));
+	ft_dlst_clear(&(info->b));
+	printf("a_malloc_size is %zu\n", malloc_size(info->a));
+	free(info);
+	info = NULL;
 	ans = compress_ans(ans);
 	ans = compress_ans(ans); // 複数回やらないと完全にはならない
 	// show_ans(ans);
-	return (ft_dlst_size(ans));
+	len = ft_dlst_size(ans);
+	ft_dlst_clear(&ans);
+	free(ans);
+	ans = NULL;
+	printf("ans_malloc_size is %zu\n", malloc_size(ans));
+	printf("info_malloc_size is %zu\n", malloc_size(info));
+	free(wall);
+	wall = NULL;
+	printf("wall_malloc_size is %zu\n", malloc_size(wall));
+	return (len);
 }

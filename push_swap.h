@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:47:50 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/26 11:28:00 by jkosaka          ###   ########.fr       */
+/*   Updated: 2021/12/26 18:27:43 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <limits.h>
 # include <assert.h> // assertを後で消す
+# include <malloc/malloc.h>
 # include "./libft/libft.h"
 # include "./printf/ft_printf.h"
 
@@ -51,7 +52,6 @@ typedef struct s_info
 	int		total;
 	int		a_size;
 	int		b_size;
-
 }				t_info;
 
 int		push_swap(int argc, char *argv[]);

@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:47:43 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/26 12:37:00 by jkosaka          ###   ########.fr       */
+/*   Updated: 2021/12/26 19:42:38 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ static int	is_error(int argc, char *argv[])
 		j = 0;
 		while (argv[i][j])
 		{
+			// atoiに失敗するかどうか
 			if (!ft_isdigit(argv[i][j]))
 				return (1);
 			j++;
@@ -53,7 +54,12 @@ int	push_swap(int argc, char *argv[])
 		arr[i] = find_index(n, sorted_arr, arr[i]);
 		i++;
 	}
+	free(sorted_arr);
+	sorted_arr = NULL;
 	i = 0;
 	result = solve(n, arr);
+	free(arr);
+	arr = NULL;
+	printf("arr_malloc_size is %zu\n", malloc_size(arr));
 	return (0);
 }

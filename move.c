@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:47:06 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/26 12:45:37 by jkosaka          ###   ########.fr       */
+/*   Updated: 2021/12/26 14:31:31 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,6 @@ static int	bottom_move(t_info *info, t_dlst **ans, int move)
 		if (dlst_back(info->a) > dlst_back(info->b))
 		{
 			pa(info, ans);
-			info->b_size -= 1;
 			move++;
 		}
 		else
@@ -104,7 +103,6 @@ static int	top_move(t_info *info, t_dlst **ans, int move)
 		if (dlst_back(info->a) > dlst_back(info->b))
 		{
 			pa(info, ans);
-			info->b_size -= 1;
 			move++;
 		}
 		else
@@ -118,7 +116,6 @@ void	push_b_to_a(t_info *info, t_dlst **ans)
 	int	move;
 	int	i;
 
-	info->b_size = ft_dlst_size(info->b);
 	move = 0;
 	while (info->b_size)
 	{
@@ -136,7 +133,6 @@ void	push_b_to_a(t_info *info, t_dlst **ans)
 			move--;
 			info->target++;
 		}
-		info->b_size--;
 	}
 }
 
