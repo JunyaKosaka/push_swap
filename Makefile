@@ -6,7 +6,7 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/25 18:34:44 by jkosaka           #+#    #+#              #
-#    Updated: 2021/12/27 17:37:27 by jkosaka          ###   ########.fr        #
+#    Updated: 2021/12/27 17:44:48 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRCS = push_swap.c push_swap_utils.c push_swap_utils_dlist.c \
 	solve.c \
 	./operator/operator_swap.c ./operator/operator_rrr.c  \
 	./operator/operator_rotate.c ./operator/operator_push.c \
+	./utils/dlst_operator.c \
 	move.c main.c
 
 OBJS = $(SRCS:%.c=%.o)
