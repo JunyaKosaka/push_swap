@@ -1,70 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move.c                                             :+:      :+:    :+:   */
+/*   push_b_to_a.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/25 19:47:06 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/26 14:31:31 by jkosaka          ###   ########.fr       */
+/*   Created: 2021/12/27 18:04:13 by jkosaka           #+#    #+#             */
+/*   Updated: 2021/12/27 18:04:52 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static long	cal_last_sum(int len, t_dlst *a)
-{
-	long	sum;
-	int		i;
-
-	sum = 0;
-	i = 0;
-	a = a->prev;
-	while (i < len)
-	{
-		sum += a->value;
-		a = a->prev;
-		i++;
-	}
-	return (sum);
-}
-
-static int	check_two(t_dlst *last, int target)
-{
-	return (last->value == target + 1 && last->prev->value == target);
-}
-
-void	push_a_to_b(int len, t_info *info, t_dlst **ans)
-{
-	int		i;
-	long	sum;
-	long	border;
-
-	sum = cal_last_sum(len, info->a);
-	border = sum / len - 4;
-	i = 0;
-	while (i < len && info->a->next->value != -1)
-	{
-		if (i < len - 1 && check_two(info->a->prev, info->target))
-		{
-			sa(info, ans);
-			ra(info, ans);
-			info->target += 1;
-		}
-		else if (dlst_back(info->a) == info->target)
-		{
-			ra(info, ans);
-			info->target += 1;
-		}
-		else
-		{
-			pb(info , ans);
-			if (dlst_back(info->b) < border)
-				rb(info, ans);
-		}
-		i++;
-	}
-}
 
 static int	b_target_index(t_info *info, int target)
 {
@@ -133,43 +79,5 @@ void	push_b_to_a(t_info *info, t_dlst **ans)
 			move--;
 			info->target++;
 		}
-	}
-}
-
-void	divide_a_to_b(int len, t_info *info, t_dlst **ans)
-{
-	int	i;
-
-	i = 0;
-	while (i < len)
-	{
-		if (isin(info->border_a, dlst_back(info->a)))
-			ra(info, ans);
-		else
-		{
-			pb(info, ans);
-			if (isin(info->border_b, dlst_back(info->b)))
-				rb(info, ans);
-		}
-		i++;
-	}
-}
-
-void	divide_b_to_a(int len, t_info *info, t_dlst **ans)
-{
-	int	i;
-
-	i = 0;
-	while (i < len)
-	{
-		if (isin(info->border_b, dlst_back(info->b)))
-			rb(info, ans);
-		else
-		{
-			pa(info, ans);
-			if (isin(info->border_a, dlst_back(info->a)))
-				ra(info, ans);
-		}
-		i++;
 	}
 }

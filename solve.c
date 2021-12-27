@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 00:12:12 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/27 17:22:33 by jkosaka          ###   ########.fr       */
+/*   Updated: 2021/12/27 17:46:49 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,7 +137,7 @@ int	solve(int total_len, int *arr)
 		i++;
 	}
 	ans = compress_ans(ans);
-	// show_ans(ans);
+	show_ans(ans);
 	len = ft_dlst_size(ans);
 	free_all(info, ans, &wall);
 	return (len);

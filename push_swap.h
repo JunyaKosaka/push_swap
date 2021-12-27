@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:47:50 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/27 15:36:34 by jkosaka          ###   ########.fr       */
+/*   Updated: 2021/12/27 18:10:15 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	free_info(t_info *info);
 int		error_handler(void);
 int		*ft_bubble_sort(int n, int *a);
 void	ft_swap(int *x, int *y);
-int		*convert_to_int(int n, char *argv[]);
+// int		*convert_to_int(int n, char *argv[]);
 int		find_index(int n, int *arr, int value);
 int		solve(int n, int *arr);
 t_dlst	*ft_dlst_last(t_dlst *lst);
