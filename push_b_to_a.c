@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 18:04:13 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/28 01:21:49 by jkosaka          ###   ########.fr       */
+/*   Updated: 2021/12/28 14:07:04 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ static int	top_move(t_info *info, t_dlst **ans, int move)
 	return (move);
 }
 
-// ここでlenとmoveがうまく計算できていない
 void	push_b_to_a(t_info *info, t_dlst **ans)
 {
 	int	move;

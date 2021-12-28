@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:47:43 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/28 02:08:08 by jkosaka          ###   ########.fr       */
+/*   Updated: 2021/12/28 19:55:22 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	solve(int total_len, int *arr)
 	if (total_len < 200)
 		return (solve_five(total_len, arr));
 	else
-		return (solve_13(total_len, arr));
+		return (solve_quick_15(total_len, arr));
 }
 
 int	push_swap(int argc, char *argv[])

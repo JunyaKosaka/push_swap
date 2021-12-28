@@ -29,6 +29,7 @@ static int	*set_wall_13(t_info *info, int n)
 	wall[4] -= 20;
 	wall[5] -= 30;
 	wall[6] -= 40;
+	printf("wall[6] %d\n", wall[6]);
 	wall[7] -= 50;
 	// ここを大きく
 	wall[8] += -20;
@@ -92,11 +93,11 @@ void	solve_13_core(t_info *info, t_dlst **ans, int *wall)
 	// show(info);
 	// printf("wall %d %d\n", wall[0], wall[1]);
 	// quick_sort_b(len, info, ans);
-	push_b_to_a(info, ans);
+	// push_b_to_a(info, ans);
 	// show(info);
 	push_b_to_a(info, ans);
 	// show(info);
-	// printf("divide done %d\n", ft_dlst_size(*ans));
+	printf("onetime done %d\n", ft_dlst_size(*ans));
 	i = 7;
 	while (i <= info->divide)
 	{
@@ -126,17 +127,19 @@ int	solve_13(int total_len, int *arr)
 	if (ft_is_sorted(total_len, arr))
 		return (0);
 	info = init_stack(total_len, arr, &ans);
-	info->divide = 13;
 	if (!info)
 		return (free_all_info(info, ans, &wall));
+	info->divide = 13;
 	wall = set_wall_13(info, total_len);
 	if (!wall)
 		return (free_all_info(info, ans, &wall));
 	divide_13_block(info, &ans, wall);
 	// show(info);
-	// printf("divide done %d\n", ft_dlst_size(ans));
+	printf("divide done %d\n", ft_dlst_size(ans));
 	solve_13_core(info, &ans, wall);
 	// show(info);
+	assert(info->b_sum == 0);
+	
 	ans = compress_ans(ans);
 	// show_ans(ans);
 	len = ft_dlst_size(ans);

@@ -6,7 +6,7 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/25 18:34:44 by jkosaka           #+#    #+#              #
-#    Updated: 2021/12/28 01:46:24 by jkosaka          ###   ########.fr        #
+#    Updated: 2021/12/28 17:21:45 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = push_swap
 
 HEADERFILE = push_swap.h
 
-SRCS = push_swap.c solve_utils.c \
+SRCS = push_swap.c solve_utils.c solve_quick.c solve_quick_15.c \
 	solve_five.c solve_13.c solve_9.c set_border.c push_a_to_b.c push_b_to_a.c \
 	./operator/operator_swap.c ./operator/operator_rrr.c \
 	./operator/operator_rotate.c ./operator/operator_push.c \

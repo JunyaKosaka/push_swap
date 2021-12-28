@@ -108,9 +108,9 @@ int	solve_9(int total_len, int *arr)
 	if (ft_is_sorted(total_len, arr))
 		return (0);
 	info = init_stack(total_len, arr, &ans);
-	info->divide = 9;
 	if (!info)
 		return (free_all_info(info, ans, &wall));
+	info->divide = 9;
 	wall = set_wall_9(info, total_len);
 	if (!wall)
 		return (free_all_info(info, ans, &wall));

@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:47:50 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/28 01:42:36 by jkosaka          ###   ########.fr       */
+/*   Updated: 2021/12/28 17:21:16 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct s_info
 	int		total;
 	int		a_size;
 	int		b_size;
+	long	b_sum;
 }				t_info;
 
 int		push_swap(int argc, char *argv[]);
@@ -68,6 +69,8 @@ int		solve(int total_len, int *arr);
 int		solve_five(int n, int *arr);
 int		solve_13(int total_len, int *arr);
 int		solve_9(int total_len, int *arr);
+int		solve_quick(int total_len, int *arr);
+int		solve_quick_15(int total_len, int *arr);
 int		ft_is_sorted(int n, int *arr);
 t_info	*init_stack(int total_len, int *arr, t_dlst **ans);
 t_dlst	*ft_dlst_last(t_dlst *lst);
