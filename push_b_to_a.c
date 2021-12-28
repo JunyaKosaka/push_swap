@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 18:04:13 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/28 14:07:04 by jkosaka          ###   ########.fr       */
+/*   Updated: 2021/12/29 01:47:52 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	push_b_to_a(t_info *info, t_dlst **ans)
 	while (info->b_size)
 	{
 		index = b_target_index(info, info->target);
-		if (index < info->b_size / 2)
+		if (index < info->b_size / 2 - 1)
 			move = bottom_move(info, ans, move);
 		else
 			move = top_move(info, ans, move);

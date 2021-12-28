@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 17:19:39 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/28 20:23:40 by jkosaka          ###   ########.fr       */
+/*   Updated: 2021/12/29 01:36:15 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,37 +26,35 @@ static int	*set_wall_15(t_info *info, int n)
 		wall[i] = n / (info->divide) * i;
 	}
 	wall[1] -= 2;
-	wall[2] -= 2;
-	wall[3] -= 13;
-	wall[4] -= 15;
-	wall[5] -= 13;
-	wall[6] -= 10;
-	wall[7] -= 7;
-	wall[8] += 3;
+	wall[2] -= 4;
+	wall[3] -= 17;
+	wall[4] -= 19;
+	wall[5] -= 21;
+	wall[6] -= 20;
+	wall[7] -= 13;
+	wall[8] += 1;
 	// ここを大きく
-	wall[9] += 20;
-	wall[10] += 25;
-	wall[11] += 25;
-	wall[12] += 25;
-	wall[13] += 20;
-	wall[14] += 17; // 3860
+	wall[9] += 24;
+	wall[10] += 32;
+	wall[11] += 34;
+	wall[12] += 32;
+	wall[13] += 28;
+	wall[14] += 17; // 3840
 	// wall[1] -= 2;
-	// wall[2] -= 2;
-	// wall[3] -= 13;
-	// wall[4] -= 15;
-	// wall[5] -= 13;
-	// wall[6] -= 10;
-	// wall[7] -= 7;
-	// wall[8] += 3;
+	// wall[2] -= 4;
+	// wall[3] -= 17;
+	// wall[4] -= 19;
+	// wall[5] -= 21;
+	// wall[6] -= 20;
+	// wall[7] -= 13;
+	// wall[8] += 1;
 	// // ここを大きく
-	// wall[9] += 20;
-	// wall[10] += 25;
-	// wall[11] += 25;
-	// wall[12] += 25;
-	// wall[13] += 20;
-	// wall[14] += 17; // 3860
-
-
+	// wall[9] += 22;
+	// wall[10] += 30;
+	// wall[11] += 30;
+	// wall[12] += 30;
+	// wall[13] += 25;
+	// wall[14] += 17; // 3840
 	wall[info->divide] = info->total;
 	return (wall);
 }
@@ -170,7 +168,7 @@ int	solve_quick_15(int total_len, int *arr)
 	// show(info);
 	assert(info->b_sum == 0);
 	ans = compress_ans(ans);
-	show_ans(ans);
+	// show_ans(ans);
 	len = ft_dlst_size(ans);
 	free_all_info(info, ans, &wall);
 	return (len);

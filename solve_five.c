@@ -85,7 +85,7 @@ int	solve_five(int total_len, int *arr)
 	divide_five_block(info, &ans, wall);
 	solve_five_core(info, &ans, wall);
 	ans = compress_ans(ans);
-	show_ans(ans);
+	// show_ans(ans);
 	len = ft_dlst_size(ans);
 	free_all_info(info, ans, &wall);
 	return (len);
