@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 17:19:39 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/28 20:11:20 by jkosaka          ###   ########.fr       */
+/*   Updated: 2021/12/28 20:23:40 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,6 +170,7 @@ int	solve_quick_15(int total_len, int *arr)
 	// show(info);
 	assert(info->b_sum == 0);
 	ans = compress_ans(ans);
+	show_ans(ans);
 	len = ft_dlst_size(ans);
 	free_all_info(info, ans, &wall);
 	return (len);
