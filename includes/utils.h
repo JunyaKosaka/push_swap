@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:47:50 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/31 14:41:21 by jkosaka          ###   ########.fr       */
+/*   Updated: 2021/12/31 16:34:06 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ typedef struct s_dlst
 	struct s_dlst	*next;
 	struct s_dlst	*prev;
 }				t_dlst;
-
+ 
 typedef struct s_info
 {
 	t_dlst	*a;

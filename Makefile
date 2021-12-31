@@ -6,7 +6,7 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/25 18:34:44 by jkosaka           #+#    #+#              #
-#    Updated: 2021/12/31 14:56:54 by jkosaka          ###   ########.fr        #
+#    Updated: 2021/12/31 17:40:57 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,17 +21,23 @@ SRCS = main.c \
 	./operations/operator_swap.c \
 	./ps_src/push_swap.c \
 	./ps_src/ps_sort.c \
+	./ps_src/block5_sort.c \
+	./ps_src/snowman_sort.c \
 	./ps_src/init_stack.c \
 	./ps_src/set_wall.c \
 	./ps_src/set_border.c \
 	./ps_src/divide.c \
-	./ps_src/block5_sort.c \
+	./ps_src/push_a_to_b.c \
+	./ps_src/push_b_to_a.c \
+	\
 	./utils/bubble_sort.c \
 	./utils/error_handler.c \
 	./utils/free.c \
+	./utils/show.c \
 	./utils/utils.c \
 	./utils/dlst_status.c \
 	./utils/dlst_function.c \
+	./utils/compress_ans.c \
 
 OBJS = $(SRCS:%.c=%.o)
 

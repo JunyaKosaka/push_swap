@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/31 01:55:55 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/31 02:00:41 by jkosaka          ###   ########.fr       */
+/*   Updated: 2021/12/31 17:21:36 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	dlst_clear(t_dlst **lst)
 		return ;
 	cur = *lst;
 	cur = cur->next;
-	while (cur->value != -1)
+	while (cur->value != SENTINEL)
 	{
 		prev = cur;
 		cur = cur->next;

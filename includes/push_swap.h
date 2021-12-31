@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:47:50 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/31 14:55:58 by jkosaka          ###   ########.fr       */
+/*   Updated: 2021/12/31 17:47:16 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,23 @@ int		push_swap(int argc, char *argv[]);
 int		*ft_bubble_sort(int n, int *a);
 t_info	init_stack(int total_len, int **arr, int divide);
 
-
+void	show_one(t_dlst	*lst);
+void	show_ans(t_dlst	*lst);
+void	show(t_info info);
+t_dlst	*compress_ans(t_dlst *ans);
 
 
 /*   ps_src   */
 int		ps_sort(int total_len, int **arr);
 int		block5_sort(int total_len, int **arr);
+int		snowman_sort(int total_len, int **arr);
 void	set_wall(t_info *info);
 void	set_border_a(t_info *info, int bottom_i, int top_i);
 void	set_border_b(t_info *info, int bottom_i, int top_i);
 void	divide_a_to_b(int len, t_info *info);
 void	divide_b_to_a(int len, t_info *info);
+void	push_a_to_b(int len, t_info *info);
+void	push_b_to_a(t_info *info);
 
 /*   dlst   */
 t_dlst	*dlst_rbegin(t_dlst *lst);

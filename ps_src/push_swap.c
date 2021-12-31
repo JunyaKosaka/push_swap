@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 20:35:28 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/31 11:57:57 by jkosaka          ###   ########.fr       */
+/*   Updated: 2021/12/31 17:29:56 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,6 @@ int	push_swap(int argc, char *argv[])
 	result = ps_sort(total_len, &arr);
 
 	free_int_arr(&arr);
-	system("leaks push_swap");
 	if (result == -1)
 		return (error_handler());
 	return (0);
