@@ -6,7 +6,7 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/25 18:34:44 by jkosaka           #+#    #+#              #
-#    Updated: 2021/12/31 17:40:57 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/01/01 01:01:10 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ SRCS = main.c \
 	./ps_src/init_stack.c \
 	./ps_src/set_wall.c \
 	./ps_src/set_border.c \
-	./ps_src/divide.c \
+	./ps_src/divide_ab.c \
+	./ps_src/divide_blocks.c \
 	./ps_src/push_a_to_b.c \
 	./ps_src/push_b_to_a.c \
 	\

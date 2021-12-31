@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/31 00:35:02 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/31 14:01:54 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/01 00:51:54 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ static void	set_wall_15(t_info *info)
 	(info->wall)[7] -= total / 38;
 	(info->wall)[8] += total / 500;
 	// ここを大きく
-	(info->wall)[9] += total / 20 - 1;
-	(info->wall)[10] += total / 15 - 1;
-	(info->wall)[11] += total / 14 - 1;
-	(info->wall)[12] += total / 15 - 1;
-	(info->wall)[13] += total / 17 - 1;
+	(info->wall)[9] += total / 20 - total / 300;
+	(info->wall)[10] += total / 15 - total / 300;
+	(info->wall)[11] += total / 14 - total / 300;
+	(info->wall)[12] += total / 15 - total / 300;
+	(info->wall)[13] += total / 17 - total / 300;
 	(info->wall)[14] += total / 29; // 3811
 }
 

@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:47:50 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/31 17:47:16 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/01 00:59:43 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	divide_a_to_b(int len, t_info *info);
 void	divide_b_to_a(int len, t_info *info);
 void	push_a_to_b(int len, t_info *info);
 void	push_b_to_a(t_info *info);
+void	divide_blocks(t_info *info);
 
 /*   dlst   */
 t_dlst	*dlst_rbegin(t_dlst *lst);
