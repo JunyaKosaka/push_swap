@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   set_border.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/07 14:31:12 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/29 20:47:42 by jkosaka          ###   ########.fr       */
+/*   Created: 2021/12/31 13:59:53 by jkosaka           #+#    #+#             */
+/*   Updated: 2021/12/31 14:05:32 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/push_swap.h"
 
-int	ft_isdigit(int c)
+void	set_border_a(t_info *info, int bottom_i, int top_i)
 {
-	return ('0' <= c && c <= '9');
+	info->border_a[0] = info->wall[bottom_i];
+	info->border_a[1] = info->wall[top_i];
 }
 
-// #include <stdio.h>
-// #include <ctype.h>
-
-// int	main(void)
-// {
-// 	int		i = -1;
-// 	while (++i <= 127)
-// 	{
-// 		if (ft_isdigit(i) != isdigit(i))
-// 		{
-// 			printf("NG\n");
-// 			return (0);
-// 		}
-// 	}
-// 	printf("Done\n");
-// 	return (0);
-// }
+void	set_border_b(t_info *info, int bottom_i, int top_i)
+{
+	info->border_b[0] = info->wall[bottom_i];
+	info->border_b[1] = info->wall[top_i];
+}

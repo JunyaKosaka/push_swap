@@ -6,6 +6,7 @@
 		"utils"
 	],
 	"files.associations": {
-		"algorithm": "c"
+		"algorithm": "c",
+		"push_swap.h": "c"
 	}
 }

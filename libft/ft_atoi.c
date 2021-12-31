@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 16:43:00 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/27 17:16:01 by jkosaka          ###   ########.fr       */
+/*   Updated: 2021/12/29 20:55:01 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	is_over(long n, int m, int sign)
 {
-	if (sign)
+	if (sign > 0)
 		return (n > (INT_MAX - m) / 10);
 	else
 		return (n > ((long)INT_MAX + 1 - m) / 10);
@@ -39,6 +39,8 @@ long	ft_atoi(const char *str)
 		sign = 44 - *str;
 		str++;
 	}
+	if (!(*str))
+		return (LONG_MAX);
 	while (ft_isdigit(*str))
 	{
 		if (is_over(ret, *str - '0', sign))

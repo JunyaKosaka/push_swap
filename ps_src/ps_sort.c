@@ -1,36 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ps_sort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/07 14:31:12 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/29 20:47:42 by jkosaka          ###   ########.fr       */
+/*   Created: 2021/12/30 20:35:28 by jkosaka           #+#    #+#             */
+/*   Updated: 2021/12/31 11:52:22 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/push_swap.h"
 
-int	ft_isdigit(int c)
+int	ps_sort(int total_len, int **arr)
 {
-	return ('0' <= c && c <= '9');
+	if (total_len < 300)
+		return (block5_sort(total_len, arr));
+	else
+		return (30);
 }
-
-// #include <stdio.h>
-// #include <ctype.h>
-
-// int	main(void)
-// {
-// 	int		i = -1;
-// 	while (++i <= 127)
-// 	{
-// 		if (ft_isdigit(i) != isdigit(i))
-// 		{
-// 			printf("NG\n");
-// 			return (0);
-// 		}
-// 	}
-// 	printf("Done\n");
-// 	return (0);
-// }

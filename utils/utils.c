@@ -6,16 +6,27 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 17:59:38 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/27 19:45:46 by jkosaka          ###   ########.fr       */
+/*   Updated: 2021/12/31 15:15:53 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../includes/push_swap.h"
 
-int	error_handler(void)
+long	cal_last_sum(int len, t_dlst *a)
 {
-	write(2, "Error\n", 6);
-	return (1);
+	long	sum;
+	int		i;
+
+	sum = 0;
+	i = 0;
+	a = a->prev;
+	while (i < len)
+	{
+		sum += a->value;
+		a = a->prev;
+		i++;
+	}
+	return (sum);
 }
 
 void	ft_swap(int *x, int *y)
@@ -31,17 +42,30 @@ int	find_index(int n, int *arr, int value)
 {
 	int	i;
 
-	i = 0;
-	while (i < n)
+	i = -1;
+	while (++i < n)
 	{
 		if (arr[i] == value)
 			return (i);
-		i++;
 	}
 	return (-1);
 }
 
-int	isin(int border[2], int x)
+int	is_in_border(int border[2], int x)
 {
 	return (border[0] <= x && x < border[1]);
+}
+
+int	is_sorted(int total_len, int *arr)
+{
+	int	i;
+
+	i = 0;
+	while (i < total_len - 1)
+	{
+		if (arr[i] > arr[i + 1] + 1)
+			return (0);
+		i++;
+	}
+	return (1);
 }

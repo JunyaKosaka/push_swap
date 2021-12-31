@@ -6,36 +6,35 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 19:35:41 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/27 19:49:32 by jkosaka          ###   ########.fr       */
+/*   Updated: 2021/12/31 11:59:21 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../includes/push_swap.h"
 
-void	free_info(t_info *info)
+static void	free_info(t_info *info)
 {
 	if (!info)
 		return ;
-	ft_dlst_clear(&(info->a));
-	ft_dlst_clear(&(info->b));
-	free(info);
-	info = NULL;
+	dlst_clear(&(info->a));
+	dlst_clear(&(info->b));
+	dlst_clear(&(info->ans));
 }
 
-int	free_all_info(t_info *info, t_dlst *ans, int **arr)
+int	free_all_info(t_info *info, int **arr, int error)
 {
 	if (info)
 		free_info(info);
-	if (ans)
-		ft_dlst_clear(&ans);
-	if (arr)
+	if (arr && *arr)
 		free_int_arr(arr);
-	return (-1);
+	if (error)
+		exit(error_handler());
+	return (0);
 }
 
 void	*free_int_arr(int **arr)
 {
-	if (arr)
+	if (arr && *arr)
 	{
 		free(*arr);
 		*arr = NULL;
