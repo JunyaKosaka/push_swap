@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:46:52 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/01 00:52:16 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/01 02:23:42 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ static int	*create_random_arr(int n)
 int	main()
 {
 	int		i;
-	int		trial = 1;
+	int		trial = 300;
 	long	result = 0;
-	int		len = 10;
+	int		len = 500;
 	int		max = 0;
 	int		min = INT_MAX;
 

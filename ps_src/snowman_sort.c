@@ -6,29 +6,27 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/31 17:39:38 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/01 00:58:11 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/01 01:28:43 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-// void	solve_15_core(t_info *info, t_dlst **ans, int *wall)
-// {
-// 	int	i;
-// 	int	len;
+static void	line_up(t_info *info)
+{
+	int	i;
+	int	len;
 
-// 	push_b_to_a(info, ans);
-// 	// show(info);
-// 	// printf("onetime done %d\n", ft_dlst_size(*ans));
-// 	i = 3;
-// 	while (i <= info->divide)
-// 	{
-// 		len = wall[i] - wall[i-1];
-// 		push_a_to_b(len, info, ans);
-// 		push_b_to_a(info, ans);
-// 		i++;
-// 	}
-// }
+	push_b_to_a(info);
+	i = 2;
+	while (i < info->divide)
+	{
+		len = (info->wall)[i + 1] - (info->wall)[i];
+		push_a_to_b(len, info);
+		push_b_to_a(info);
+		i++;
+	}
+}
 
 int	snowman_sort(int total_len, int **arr)
 {
@@ -40,17 +38,12 @@ int	snowman_sort(int total_len, int **arr)
 	if (divide == 3)
 		divide = 7;
 	info = init_stack(total_len, arr, divide);
-	show(info);
 	divide_blocks(&info);
-	show(info);
-	exit(0);
-	// // show(info);
-	// solve_15_core(info, &ans, wall);
-	// // show(info);
-	// assert(info->b_sum == 0);
-	// ans = compress_ans(ans);
-	// // show_ans(ans);
-	// len = ft_dlst_size(ans);
-	// free_all_info(info, ans, &wall);
+	line_up(&info);
+	assert(info.b_size == 0);
+	info.ans = compress_ans(info.ans);
+	// show_ans(info.ans);
+	len = dlst_size(info.ans);
+	free_all_info(&info, arr, FALSE);
 	return (len);
 }
