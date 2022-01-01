@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 17:59:38 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/01 22:39:00 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/01 23:45:42 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,28 +69,3 @@ int	is_sorted(int total_len, int *arr)
 	}
 	return (1);
 }
-
-
-
-
-
-
-
-
-// // 削除用
-// static void	compress_arr(int total_len, int **arr)
-// {
-// 	int	*sorted_arr;
-// 	int	i;
-
-// 	sorted_arr = ft_bubble_sort(total_len, *arr);
-// 	if (!sorted_arr)
-// 	{
-// 		free_int_arr(arr);
-// 		exit(error_handler());
-// 	}
-// 	i = -1;
-// 	while (++i < total_len)
-// 		(*arr)[i] = find_index(total_len, sorted_arr, (*arr)[i]);		
-// 	free_int_arr(&sorted_arr);
-// }

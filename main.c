@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:46:52 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/01 22:05:02 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/02 01:16:18 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,9 @@ int	main(int argc, char *argv[])
 // int	main()
 // {
 // 	int		i;
-// 	int		trial = 100;
+// 	int		trial = 500;
 // 	long	result = 0;
-// 	int		len = 100;
+// 	int		len = 500;
 // 	int		max = 0;
 // 	int		min = INT_MAX;
 
@@ -86,12 +86,13 @@ int	main(int argc, char *argv[])
 // 		result += temp;
 // 		i++;
 // 	}
+// 	// printf("result is %ld\n", result);
 // 	printf("average is %ld\n", result / trial);
 // 	printf("max is %d\n", max);
 // 	printf("min is %d\n", min);
 	
 // 	printf("trial is %d\n", trial);
 // 	printf("len is %d\n", len);
-// 	system("leaks push_swap");
+// 	// system("leaks push_swap");
 // 	return (0);
 // }

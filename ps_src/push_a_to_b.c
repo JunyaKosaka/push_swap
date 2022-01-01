@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 18:02:31 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/31 17:22:32 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/01 23:28:37 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void	push_a_to_b(int len, t_info *info)
 	border = sum / len - 4;
 	if (len > 33)
 		border -= len / 30;
-	i = 0;
-	while (i < len && info->a->next->value != SENTINEL)
+	i = -1;
+	while (++i < len && info->a_size)
 	{
 		if (i < len - 1 && check_two(info->a->prev, info->target))
 		{
@@ -50,6 +50,5 @@ void	push_a_to_b(int len, t_info *info)
 		}
 		else
 			pb_and_rb(info, border);
-		i++;
 	}
 }

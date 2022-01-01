@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 19:35:41 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/01 21:12:36 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/01 23:40:25 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,3 @@ int	free_all_info(t_info *info, int error)
 		exit(error_handler());
 	return (0);
 }
-

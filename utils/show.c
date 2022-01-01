@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 17:52:51 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/31 17:21:52 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/01 23:44:25 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ void	show_one(t_dlst	*lst)
 	cur = cur->prev;
 	while (cur->value != SENTINEL)
 	{
-		printf("%d\n", cur->value);
+		ft_putnbr_fd(cur->value, STDOUT);
+		ft_putchar_fd('\n', STDOUT);
 		cur = cur->prev;
 	}
 }
@@ -61,16 +62,15 @@ void	show_ans(t_dlst	*lst)
 	while (cur->value != SENTINEL)
 	{
 		ft_putendl_fd(reply_ans(cur->value), STDOUT);
-		// ft_printf("%s\n", reply_ans(cur->value));
 		cur = cur->next;
 	}
 }
 
 void	show(t_info info)
 {
-	printf("== a ==\n");
+	ft_putendl_fd("== a ==", STDOUT);
 	show_one(info.a);
-	printf("== b ==\n");
+	ft_putendl_fd("== b ==", STDOUT);
 	show_one(info.b);
-	printf("====\n");
+	ft_putendl_fd("====", STDOUT);
 }

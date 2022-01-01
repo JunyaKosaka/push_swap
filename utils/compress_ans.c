@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 17:55:16 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/31 17:18:50 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/01 23:38:48 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,11 @@ static t_dlst	*compress_ans_one(t_dlst *ans)
 		{
 			if (new_value != PASS)
 				dlst_addback(&new_ans, dlst_new(new_value));
-			ans = next->next;
+			ans = next;
 		}		
 		else
-		{
 			dlst_addback(&new_ans, dlst_new(ans->value));
-			ans = next;
-		}
+		ans = ans->next;
 	}
 	while (ans->value != SENTINEL)
 		ans = ans->next;

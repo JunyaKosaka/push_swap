@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:47:50 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/01 21:02:11 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/02 00:37:49 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,19 @@ void	show_ans(t_dlst	*lst);
 void	show(t_info info);
 t_dlst	*compress_ans(t_dlst *ans);
 
-
 /*   ps_src   */
 int		ps_sort(t_info *info);
+int		small_size_sort(t_info *info);
 int		block5_sort(t_info *info);
 int		deque_sort(t_info *info);
-void	set_wall(t_info *info);
+void	divide_blocks_dq(t_info *info);
+void	set_wall(t_info *info, int a_top_index);
 void	set_border_a(t_info *info, int bottom_i, int top_i);
 void	set_border_b(t_info *info, int bottom_i, int top_i);
 void	divide_a_to_b(int len, t_info *info);
 void	divide_b_to_a(int len, t_info *info);
 void	push_a_to_b(int len, t_info *info);
 void	push_b_to_a(t_info *info);
-void	divide_blocks(t_info *info);
 void	init_stack(int total_len, t_info *info);
 
 /*   dlst   */

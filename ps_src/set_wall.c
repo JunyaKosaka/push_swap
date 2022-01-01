@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/31 00:35:02 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/01 22:14:59 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/02 01:42:40 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,43 +19,42 @@ static void	set_wall_five(t_info *info)
 	total = info->total_len;
 	if (total > 90)
 	{
-		(info->wall)[2] += total / 40; // 53
-		(info->wall)[3] -= total / 14 - total / 22; // 53
-		(info->wall)[4] += total / 7 - total / 80;  // 93
+		(info->wall)[2] += total / 40;
+		(info->wall)[3] -= total / 14 - total / 22;
+		(info->wall)[4] += total / 7 - total / 80;
 	}
 }
 
-static void	set_wall_15(t_info *info)
+static void	set_wall_21(t_info *info)
 {
 	int	total;
 
-	total = info->total_len;
-	(info->wall)[1] -= total / 250;
-	(info->wall)[2] -= total / 120;
-	(info->wall)[3] -= total / 29;
-	(info->wall)[4] -= total / 26;
-	(info->wall)[5] -= total / 23;
-	(info->wall)[6] -= total / 25;
-	(info->wall)[7] -= total / 38;
-	(info->wall)[8] += total / 300;
-	// ここを大きく
-	(info->wall)[9] += total / 20 + total / 300;
-	(info->wall)[10] += total / 15 + total / 300;
-	(info->wall)[11] += total / 15 + total / 160; // 36
-	(info->wall)[12] += total / 15 + total / 83; // +39
-	(info->wall)[13] += total / 15 + total / 200; // +33
-	(info->wall)[14] += total / 17; // 492  3795
+	total = info->total_len; // total 500
+	(info->wall)[4] -= total / 150;
+	(info->wall)[8] -= total / 150;
+	(info->wall)[9] -= total / 100;
+	(info->wall)[10] -= total / 100;
+	(info->wall)[11] += total / 60;
+	(info->wall)[12] += total / 41;
+	(info->wall)[13] += total / 100;
+	(info->wall)[14] += total / 100;
+	(info->wall)[15] += total / 100;
+	(info->wall)[16] += total / 150;
+	(info->wall)[17] += total / 150;
+	(info->wall)[18] += total / 150;
+	(info->wall)[19] += total / 150;
+	(info->wall)[20] += total / 70;
 }
 
-static void	set_wall_other(t_info *info)
+static void	set_wall_other(t_info *info, int a_top_index)
 {
 	int	total;
 	int	center;
 	int	i;
 
 	total = info->total_len;
-	center = (2 + info->divide - 1) / 2;
-	i = 2;
+	center = (a_top_index + info->divide - 1) / 2;
+	i = a_top_index;
 	while (++i <= center)
 		(info->wall[i]) -= total / (info->divide * 2);
 	i = center;
@@ -65,7 +64,7 @@ static void	set_wall_other(t_info *info)
 	}
 }
 
-void	set_wall(t_info *info)
+void	set_wall(t_info *info, int a_top_index)
 {
 	int	i;
 
@@ -75,8 +74,8 @@ void	set_wall(t_info *info)
 	(info->wall)[info->divide] = info->total_len;
 	if (info->divide == 5)
 		set_wall_five(info);
-	else if (info->divide == 15)
-		set_wall_15(info);
 	else
-		set_wall_other(info);
+		set_wall_other(info, a_top_index);
+	if (info->divide == 21)
+		set_wall_21(info);
 }

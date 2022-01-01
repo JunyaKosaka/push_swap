@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 20:35:28 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/01 23:11:28 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/02 01:45:52 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static void	compress_arr(int total_len, t_info *info)
 		exit(free_all_info(info, TRUE));
 	i = -1;
 	while (++i < total_len)
-		(info->arr)[i] = find_index(total_len, sorted_arr, (info->arr)[i]);	
+		(info->arr)[i] = find_index(total_len, sorted_arr, (info->arr)[i]);
 	free_int_arr(&sorted_arr);
 }
 

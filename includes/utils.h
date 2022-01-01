@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:47:50 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/01 20:24:44 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/02 01:56:46 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,11 @@
 
 # define STDOUT 1
 # define STDERR 2
-# define ARGMAX 1000
+# define ARGMAX 1001
 # define TRUE 1
 # define FALSE 0
 # define WALLMAX 50
 # define SENTINEL -1
-
 
 typedef enum e_operator
 {
@@ -51,14 +50,14 @@ typedef struct s_dlst
 	struct s_dlst	*next;
 	struct s_dlst	*prev;
 }				t_dlst;
- 
+
 typedef struct s_info
 {
 	t_dlst	*a;
 	t_dlst	*b;
 	t_dlst	*ans;
 	int		*arr;
-	int		wall[WALLMAX]; // WALLLIMIT
+	int		wall[WALLMAX];
 	int		border_a[2];
 	int		border_b[2];
 	int		a_size;
@@ -66,7 +65,6 @@ typedef struct s_info
 	int		target;
 	int		divide;
 	int		total_len;
-	// ansも持てそう
 }				t_info;
 
 /*   operations   */
@@ -81,6 +79,5 @@ void	rr(t_info *info);
 void	rra(t_info *info);
 void	rrb(t_info *info);
 void	rrr(t_info *info);
-
 
 #endif // UTILS_H
