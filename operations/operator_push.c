@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/31 14:15:36 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/31 14:27:34 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/01 20:43:07 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	pa(t_info *info)
 		return ;
 	new = dlst_new(PA);
 	if (!new)
-		exit(error_handler());
+		exit(free_all_info(info, TRUE));
 	dlst_addback(&(info->ans), new);
 	last = dlst_popback(&(info->b));
 	dlst_addback(&(info->a), last);
@@ -38,7 +38,7 @@ void	pb(t_info *info)
 		return ;
 	new = dlst_new(PB);
 	if (!new)
-		exit(error_handler());
+		exit(free_all_info(info, TRUE));
 	dlst_addback(&(info->ans), new);
 	last = dlst_popback(&(info->a));
 	dlst_addback(&(info->b), last);

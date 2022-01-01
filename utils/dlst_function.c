@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/31 01:55:55 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/31 17:21:36 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/01 21:05:26 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	dlst_clear(t_dlst **lst)
 	t_dlst	*cur;
 	t_dlst	*prev;
 
-	if (!lst)
+	if (!lst || !(*lst))
 		return ;
 	cur = *lst;
 	cur = cur->next;

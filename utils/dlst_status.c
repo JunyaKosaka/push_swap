@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/31 00:53:43 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/31 01:50:31 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/01 23:11:19 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_dlst	*dlst_new(int value)
 
 	ret = (t_dlst *)malloc(sizeof(t_dlst));
 	if (!ret)
-		exit(error_handler()); // ここでfree_all_infoする必要あるのか
+		return (NULL);
 	ret->value = value;
 	ret->next = ret;
 	ret->prev = ret;

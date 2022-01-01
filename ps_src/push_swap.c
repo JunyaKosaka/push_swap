@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 20:35:28 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/31 17:29:56 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/01 23:11:28 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,46 +54,42 @@ static int	*convert_to_int(int total_len, char *argv[])
 	return (ret);
 }
 
-static void	compress_arr(int total_len, int **arr)
+static void	compress_arr(int total_len, t_info *info)
 {
 	int	*sorted_arr;
 	int	i;
 
-	sorted_arr = ft_bubble_sort(total_len, *arr);
+	sorted_arr = ft_bubble_sort(total_len, info->arr);
 	if (!sorted_arr)
-	{
-		free_int_arr(arr);
-		exit(error_handler());
-	}
+		exit(free_all_info(info, TRUE));
 	i = -1;
 	while (++i < total_len)
-		(*arr)[i] = find_index(total_len, sorted_arr, (*arr)[i]);		
+		(info->arr)[i] = find_index(total_len, sorted_arr, (info->arr)[i]);	
 	free_int_arr(&sorted_arr);
 }
 
 int	push_swap(int argc, char *argv[])
 {
-	int	*arr;
-	int	total_len;
-	int	result;
+	t_info	info;
+	int		total_len;
+	int		result;
 
 	if (argc == 1)
 		return (0);
 	if (is_error(argc, argv))
-		return (error_handler());
+		exit(error_handler());
 	total_len = argc - 1;
-	arr = convert_to_int(total_len, argv);
-	if (!arr)
-		return (error_handler());
-	if (is_sorted(total_len, arr))
-	{
-		free_int_arr(&arr);
-		return (0);
-	}
-	compress_arr(total_len, &arr);
-	result = ps_sort(total_len, &arr);
-
-	free_int_arr(&arr);
+	info.arr = convert_to_int(total_len, argv);
+	if (!(info.arr))
+		exit(error_handler());
+	compress_arr(total_len, &info);
+	init_stack(total_len, &info);
+	if (is_sorted(total_len, info.arr))
+		return (free_all_info(&info, FALSE));
+	result = ps_sort(&info);
+	info.ans = compress_ans(info.ans);
+	show_ans(info.ans);
+	free_all_info(&info, FALSE);
 	if (result == -1)
 		return (error_handler());
 	return (0);

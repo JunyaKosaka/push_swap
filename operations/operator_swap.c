@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 17:26:00 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/31 14:57:13 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/01 20:43:43 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	sa(t_info *info)
 		return ;
 	new = dlst_new(SA);
 	if (!new)
-		exit(error_handler());
+		exit(free_all_info(info, TRUE));
 	dlst_addback(&(info->ans), new);
 	swap_last(&(info->a));
 }
@@ -43,7 +43,7 @@ void	sb(t_info *info)
 		return ;
 	new = dlst_new(SB);
 	if (!new)
-		exit(error_handler());
+		exit(free_all_info(info, TRUE));
 	dlst_addback(&(info->ans), new);
 	swap_last(&(info->b));
 }
@@ -56,7 +56,7 @@ void	ss(t_info *info)
 		return ;
 	new = dlst_new(SS);
 	if (!new)
-		exit(error_handler());
+		exit(free_all_info(info, TRUE));
 	dlst_addback(&(info->ans), new);
 	swap_last(&(info->a));
 	swap_last(&(info->b));

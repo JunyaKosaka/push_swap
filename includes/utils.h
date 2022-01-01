@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:47:50 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/31 16:34:06 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/01 20:24:44 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ typedef struct s_info
 	t_dlst	*a;
 	t_dlst	*b;
 	t_dlst	*ans;
+	int		*arr;
 	int		wall[WALLMAX]; // WALLLIMIT
 	int		border_a[2];
 	int		border_b[2];

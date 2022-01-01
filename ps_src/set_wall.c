@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/31 00:35:02 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/01 02:24:06 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/01 22:14:59 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ static void	set_wall_five(t_info *info)
 	if (total > 90)
 	{
 		(info->wall)[2] += total / 40; // 53
-		(info->wall)[3] -= total / 14 - 4; // 53
-		(info->wall)[4] += total / 7 - 1;  // 93
+		(info->wall)[3] -= total / 14 - total / 22; // 53
+		(info->wall)[4] += total / 7 - total / 80;  // 93
 	}
 }
 
