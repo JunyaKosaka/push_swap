@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 18:04:13 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/31 17:12:21 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/02 18:40:32 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,10 @@ static int	top_move(t_info *info, int move)
 			move++;
 		}
 		else if (last == info->target + 1 && check_three(info->b, info->target))
+		{
+			printf("here\n");
 			sb(info);
+		}
 		else
 			rb(info);
 	}
