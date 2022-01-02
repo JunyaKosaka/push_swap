@@ -6,11 +6,11 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 17:52:51 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/01 23:44:25 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/02 14:25:03 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/utils.h"
 
 void	show_one(t_dlst	*lst)
 {

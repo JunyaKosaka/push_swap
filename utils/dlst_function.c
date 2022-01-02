@@ -6,11 +6,11 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/31 01:55:55 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/01 21:05:26 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/02 14:25:03 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/utils.h"
 
 void	dlst_addback(t_dlst **lst, t_dlst *new)
 {

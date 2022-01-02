@@ -6,11 +6,11 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 17:29:25 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/01 20:43:26 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/02 14:22:44 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/utils.h"
 
 void	rra(t_info *info)
 {

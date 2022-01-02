@@ -6,7 +6,7 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/25 18:34:44 by jkosaka           #+#    #+#              #
-#    Updated: 2022/01/01 23:49:30 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/01/02 16:56:43 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,13 +25,14 @@ SRCS = main.c \
 	./ps_src/block5_sort.c \
 	./ps_src/deque_sort.c \
 	./ps_src/divide_blocks_dq.c \
-	./ps_src/init_stack.c \
 	./ps_src/set_wall.c \
 	./ps_src/set_border.c \
 	./ps_src/divide_ab.c \
 	./ps_src/push_a_to_b.c \
 	./ps_src/push_b_to_a.c \
+	./ps_src/check_b.c \
 	\
+	./utils/init_stack.c \
 	./utils/bubble_sort.c \
 	./utils/error_handler.c \
 	./utils/free.c \

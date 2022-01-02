@@ -6,11 +6,11 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 18:11:21 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/12/30 21:41:56 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/02 14:23:56 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/utils.h"
 
 int	*ft_bubble_sort(int total_len, int *a)
 {

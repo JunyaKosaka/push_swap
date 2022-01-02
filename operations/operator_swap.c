@@ -6,11 +6,11 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 17:26:00 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/01 20:43:43 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/02 14:22:49 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/utils.h"
 
 static void	swap_last(t_dlst **dlst)
 {
