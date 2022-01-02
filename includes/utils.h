@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:47:50 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/02 17:52:00 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/03 01:23:11 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,8 @@ int		is_in_border(int border[2], int x);
 int		is_sorted(int total_len, int *arr);
 long	abs_v(long x);
 void	init_stack(int total_len, t_info *info);
+int		*convert_to_int(int total_len, char *argv[]);
+int		is_error(int argc, char *argv[]);
 
 int		error_handler(void);
 int		push_swap(int argc, char *argv[]);

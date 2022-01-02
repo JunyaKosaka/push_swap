@@ -6,33 +6,53 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/25 18:34:44 by jkosaka           #+#    #+#              #
-#    Updated: 2022/01/03 01:26:24 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/01/03 01:15:15 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-PUSH_SWAP = push_swap
-# CHECKER = checker
-PUSH_SWAP_DIR = ./ps_src
-# CHECKER_DIR = ./checker_src
+NAME = libutil.a
 
-all:
-	make -C $(PUSH_SWAP_DIR)
-	cp $(PUSH_SWAP_DIR)/$(PUSH_SWAP) ./
-# make -C $(CHECKER_DIR)
-# cp $(CHECKER_DIR)/$(CHECKER) ./
+HEADERFILE = ../includes/utils.h
 
-clean:
-	make -C $(PUSH_SWAP_DIR) clean;
-# make -C $(CHECKER_DIR) clean;
+SRCS = operator_push.c \
+	operator_rotate.c \
+	operator_rrr.c \
+	operator_swap.c \
+	init_stack.c \
+	bubble_sort.c \
+	error_handler.c \
+	free.c \
+	show.c \
+	utils.c \
+	utils2.c \
+	dlst_status.c \
+	dlst_function.c \
+	compress_ans.c \
 
-fclean:
-	make -C $(PUSH_SWAP_DIR) fclean;
-	rm -f $(PUSH_SWAP)
-# make -C $(CHECKER_DIR) fclean;
-# rm -f $(CHECKER)
+OBJS = $(SRCS:%.c=%.o)
 
-re: fclean all
+FLAGS = -Wall -Wextra -Werror
+
+$(NAME) : $(OBJS)
+	make $(FLAGS) -C ../libft
+	cp ../libft/libft.a $(NAME)
+	ar rc $@ $^
+
+all	: $(NAME)
+
+%.o : %.c $(HEADERFILE)
+	gcc $(FLAGS) -c $< -o $@
 
 bonus : all
 
-.PHONY: all clean fclean re bonus
+clean :
+	make clean -C ../libft
+	${RM} -rf $(OBJS) $(BNS_OBJS)
+
+fclean : clean
+	make fclean -C ../libft
+	${RM} -rf $(NAME)
+
+re : fclean all
+
+.PHONY : all clean fclean re bonus

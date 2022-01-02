@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 18:04:13 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/02 20:48:52 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/03 01:45:25 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,17 +47,19 @@ static int	bottom_move(t_info *info, int move)
 
 static int	top_move(t_info *info, int move)
 {
-	int	last;
+	int	b_last;
+	int	a_last2;
 
 	while (dlst_back(info->b) != info->target)
 	{
-		last = dlst_back(info->b);
-		if (dlst_back(info->a) > last || dlst_back(info->a) == 0)
+		b_last = dlst_back(info->b);
+		a_last2 = dlst_rbegin(info->a)->prev->value;
+		if (dlst_back(info->a) > b_last || dlst_back(info->a) == 0)
 		{
 			pa(info);
 			move++;
 		}
-		else if (dlst_rbegin(info->a)->prev->value > last && dlst_back(info->a) < last)
+		else if (a_last2 > b_last && dlst_back(info->a) < b_last)
 		{
 			pa(info);
 			move++;
