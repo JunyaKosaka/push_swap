@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 18:02:31 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/02 16:57:36 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/02 20:52:17 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ static int	check_two(t_dlst *last, int target)
 	return (last->value == target + 1 && last->prev->value == target);
 }
 
-static void	pb_and_rb(t_info *info, long border)
+static void	pb_and_rb(t_info *info, long border, int i, int len)
 {
 	pb(info);
-	if (dlst_back(info->b) < border)
+	if (dlst_back(info->b) < border && i < len - 3)
 		rb(info);
 }
 
@@ -61,9 +61,9 @@ void	push_a_to_b(int len, t_info *info)
 		else if (i < len - 2 && check_three(dlst_rbegin(info->a), info->target))
 		{
 			sa(info);
-			pb_and_rb(info, border);
+			pb_and_rb(info, border, i, len);
 		}
 		else
-			pb_and_rb(info, border);
+			pb_and_rb(info, border, i, len);
 	}
 }

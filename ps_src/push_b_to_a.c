@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 18:04:13 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/02 18:44:51 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/02 20:48:52 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,12 @@ static int	b_target_index(t_info *info, int target)
 
 static int	bottom_move(t_info *info, int move)
 {
+	int	last;
+
 	while (dlst_back(info->b) != info->target)
 	{
-		if (dlst_back(info->a) > dlst_back(info->b))
+		last = dlst_back(info->b);
+		if (dlst_back(info->a) > last || dlst_back(info->a) == 0)
 		{
 			pa(info);
 			move++;
@@ -42,16 +45,6 @@ static int	bottom_move(t_info *info, int move)
 	return (move);
 }
 
-static int	check_three(t_dlst *b, int target)
-{
-	int	last2;
-	int	last3;
-
-	last2 = b->prev->prev->value;
-	last3 = b->prev->prev->prev->value;
-	return (last2 == target || last3 == target);
-}
-
 static int	top_move(t_info *info, int move)
 {
 	int	last;
@@ -59,16 +52,16 @@ static int	top_move(t_info *info, int move)
 	while (dlst_back(info->b) != info->target)
 	{
 		last = dlst_back(info->b);
-		if (dlst_back(info->a) > last)
+		if (dlst_back(info->a) > last || dlst_back(info->a) == 0)
 		{
 			pa(info);
 			move++;
 		}
-		else if (last == info->target + 1 && check_three(info->b, info->target))
+		else if (dlst_rbegin(info->a)->prev->value > last && dlst_back(info->a) < last)
 		{
-			printf("%d %d %d", info->target, last, dlst_back(info->a));
-			printf("here\n");
-			sb(info);
+			pa(info);
+			move++;
+			sa(info);
 		}
 		else
 			rb(info);
