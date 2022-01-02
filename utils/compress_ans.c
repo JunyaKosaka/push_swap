@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 17:55:16 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/02 14:25:03 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/02 17:44:39 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static t_dlst	*compress_ans_one(t_dlst *ans)
 		if (new_value % 3 == 0 && diff(ans->value, next->value) == 1)
 		{
 			if (new_value != PASS)
-				dlst_addback(&new_ans, dlst_new(new_value));
+				dlst_addback(&new_ans, dlst_new(new_value)); // malloc失敗
 			ans = next;
 		}		
 		else
