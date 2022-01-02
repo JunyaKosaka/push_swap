@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 23:49:06 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/02 17:12:02 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/02 17:52:34 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ static int	less7_sort(t_info *info)
 	pa(info);
 	if (check_two(info))
 		sa(info);
-	info->ans = compress_ans(info->ans);
+	info->ans = compress_ans(info);
 	return (dlst_size(info->ans));
 }
 
@@ -105,7 +105,7 @@ int	small_size_sort(t_info *info)
 	len = info->wall[3] - info->wall[2];
 	push_a_to_b(len, info);
 	push_b_to_a(info);
-	info->ans = compress_ans(info->ans);
+	info->ans = compress_ans(info);
 	len = dlst_size(info->ans);
 	return (len);
 }

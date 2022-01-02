@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 17:55:16 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/02 17:44:39 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/02 18:28:22 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,41 +25,50 @@ static int	convert(int x, int y)
 	return ((x + y + 1) / 2 + 1);
 }
 
-static t_dlst	*compress_ans_one(t_dlst *ans)
+void	new_ans_addback(t_info *info, t_dlst **new_ans, int value)
+{
+	t_dlst	*d_new;
+
+	d_new = dlst_new(value);
+	if (!d_new)
+		exit(free_all_info(info, TRUE));
+	dlst_addback(new_ans, d_new);
+}
+
+static t_dlst	*compress_ans_one(t_info *info)
 {
 	int		new_value;
 	t_dlst	*new_ans;
-	t_dlst	*next;
+	t_dlst	*n_ptr;
+	t_dlst	*old_ans;
 
 	new_ans = NULL;
-	dlst_addback(&new_ans, dlst_new(-1));
-	ans = ans->next;
-	while (ans->value != SENTINEL)
+	new_ans_addback(info, &new_ans, SENTINEL);
+	old_ans = info->ans->next;
+	while (old_ans->value != SENTINEL)
 	{
-		next = ans->next;
-		new_value = convert(ans->value, next->value);
-		if (new_value % 3 == 0 && diff(ans->value, next->value) == 1)
+		n_ptr = old_ans->next;
+		new_value = convert(old_ans->value, n_ptr->value);
+		if (new_value % 3 == 0 && diff(old_ans->value, n_ptr->value) == 1)
 		{
 			if (new_value != PASS)
-				dlst_addback(&new_ans, dlst_new(new_value)); // malloc失敗
-			ans = next;
-		}		
+				new_ans_addback(info, &new_ans, new_value);
+			old_ans = n_ptr;
+		}
 		else
-			dlst_addback(&new_ans, dlst_new(ans->value));
-		ans = ans->next;
+			new_ans_addback(info, &new_ans, old_ans->value);
+		old_ans = old_ans->next;
 	}
-	while (ans->value != SENTINEL)
-		ans = ans->next;
-	dlst_clear(&ans);
+	dlst_clear(&old_ans);
 	return (new_ans);
 }
 
-t_dlst	*compress_ans(t_dlst *ans)
+t_dlst	*compress_ans(t_info *info)
 {
-	int		i;
+	int	i;
 
 	i = -1;
 	while (++i < 5)
-		ans = compress_ans_one(ans);
-	return (ans);
+		info->ans = compress_ans_one(info);
+	return (info->ans);
 }

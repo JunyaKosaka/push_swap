@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:58:34 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/02 15:56:53 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/02 17:52:34 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	deque_sort(t_info *info)
 	divide_blocks_dq(info);
 	line_up(info);
 	assert(info->b_size == 0);
-	info->ans = compress_ans(info->ans);
+	info->ans = compress_ans(info);
 	len = dlst_size(info->ans);
 	return (len);
 }

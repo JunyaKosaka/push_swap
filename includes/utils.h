@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:47:50 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/02 14:34:48 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/02 17:52:00 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int		*ft_bubble_sort(int n, int *a);
 void	show_one(t_dlst	*lst);
 void	show_ans(t_dlst	*lst);
 void	show(t_info info);
-t_dlst	*compress_ans(t_dlst *ans);
+t_dlst	*compress_ans(t_info *info);
 
 /*   dlst   */
 t_dlst	*dlst_rbegin(t_dlst *lst);

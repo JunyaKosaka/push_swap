@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 20:35:28 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/02 01:45:52 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/02 17:54:55 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int	push_swap(int argc, char *argv[])
 	if (is_sorted(total_len, info.arr))
 		return (free_all_info(&info, FALSE));
 	result = ps_sort(&info);
-	info.ans = compress_ans(info.ans);
+	info.ans = compress_ans(&info);
 	show_ans(info.ans);
 	free_all_info(&info, FALSE);
 	if (result == -1)
