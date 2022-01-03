@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/31 13:59:53 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/02 18:58:12 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/03 23:04:46 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	set_border_a(t_info *info, int bottom_i, int top_i)
 {
-	info->border_a[0] = info->wall[bottom_i];
-	info->border_a[1] = info->wall[top_i];
+	info->border_a[0] = (info->wall)[bottom_i];
+	info->border_a[1] = (info->wall)[top_i];
 }
 
 void	set_border_b(t_info *info, int bottom_i, int top_i)
 {
-	info->border_b[0] = info->wall[bottom_i];
-	info->border_b[1] = info->wall[top_i];
+	info->border_b[0] = (info->wall)[bottom_i];
+	info->border_b[1] = (info->wall)[top_i];
 }
 
 int	set_border(int sum, int len)

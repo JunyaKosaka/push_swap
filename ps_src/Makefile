@@ -6,7 +6,7 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/25 18:34:44 by jkosaka           #+#    #+#              #
-#    Updated: 2022/01/03 19:07:23 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/01/03 23:17:38 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,12 +47,12 @@ bonus : all
 clean :
 	make clean -C ../libft
 	make clean -C ../utils
-	${RM} -rf $(OBJS)
+	${RM} -f $(OBJS)
 
 fclean : clean
 	make fclean -C ../libft
 	make fclean -C ../utils
-	${RM} -rf $(NAME)
+	${RM} -f $(NAME)
 
 re : fclean all
 

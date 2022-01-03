@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/31 00:35:02 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/02 21:49:27 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/03 23:04:46 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	set_wall_five(t_info *info)
 	int	total;
 	int	*wall;
 
-	wall = info->wall;
+	wall = (info->wall);
 	total = info->total_len;
 	if (total > 90)
 	{
@@ -32,7 +32,7 @@ static void	set_wall_21(t_info *info)
 	int	total;
 	int	*wall;
 
-	wall = info->wall;
+	wall = (info->wall);
 	total = info->total_len;
 	wall[4] -= total / 150;
 	wall[8] -= total / 150;
@@ -60,11 +60,11 @@ static void	set_wall_other(t_info *info, int a_top_index)
 	center = (a_top_index + info->divide - 1) / 2;
 	i = a_top_index;
 	while (++i <= center)
-		info->wall[i] -= total / (info->divide * 2);
+		(info->wall)[i] -= total / (info->divide * 2);
 	i = center;
 	while (++i < info->divide)
 	{
-		info->wall[i] += total / (info->divide + 2);
+		(info->wall)[i] += total / (info->divide + 2);
 	}
 }
 
@@ -74,8 +74,8 @@ void	set_wall(t_info *info, int a_top_index)
 
 	i = -1;
 	while (++i < info->divide)
-		info->wall[i] = info->total_len / info->divide * i;
-	info->wall[info->divide] = info->total_len;
+		(info->wall)[i] = info->total_len / info->divide * i;
+	(info->wall)[info->divide] = info->total_len;
 	if (info->divide == 5)
 		set_wall_five(info);
 	else

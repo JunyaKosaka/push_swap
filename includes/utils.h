@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:47:50 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/03 19:08:46 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/03 23:11:00 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,6 @@ int		push_swap(int argc, char *argv[]);
 int		*ft_bubble_sort(int n, int *a);
 int		is_sorted_info(t_info *info);
 t_dlst	*compress_ans(t_info *info);
-
 void	show_one(t_dlst	*lst);
 void	show_ans(t_dlst	*lst);
 void	show(t_info info);

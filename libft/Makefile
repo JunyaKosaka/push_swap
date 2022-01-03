@@ -6,7 +6,7 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/08 15:01:29 by jkosaka           #+#    #+#              #
-#    Updated: 2022/01/03 19:50:35 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/01/03 23:18:17 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,10 +49,10 @@ bonus :
 	make WITH_BONUS=1
 
 clean :
-	/bin/rm -rf $(OBJS) $(BNS_OBJS)
+	/bin/rm -f $(OBJS) $(BNS_OBJS)
 
 fclean : clean
-	/bin/rm -rf $(NAME)
+	/bin/rm -f $(NAME)
 
 re : fclean all
 

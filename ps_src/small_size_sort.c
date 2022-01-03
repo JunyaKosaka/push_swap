@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 23:49:06 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/03 19:17:17 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/03 23:04:46 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ int	small_size_sort(t_info *info)
 	set_border_a(info, 2, 3);
 	set_border_b(info, 1, 2);
 	divide_a_to_b(info->total_len, info);
-	len = info->wall[3] - info->wall[2];
+	len = (info->wall)[3] - (info->wall)[2];
 	push_a_to_b(len, info);
 	push_b_to_a(info);
 	info->ans = compress_ans(info);
