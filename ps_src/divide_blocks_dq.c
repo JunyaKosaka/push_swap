@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 23:18:09 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/01 23:26:20 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/03 11:52:55 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,17 @@ static void	divide_first_a_to_b(t_info *info, int is_second)
 	int	i;
 	int	center;
 	int	len;
+	int	inside_border_size;
 
 	center = (4 + info->divide - 1) / 2;
 	i = 0;
 	len = info->a_size;
 	set_border_a(info, center, center + 1);
+	inside_border_size = info->border_a[1] - info->border_a[0];
 	while (i < len)
 	{
+		if (info->a_size == inside_border_size)
+			break ;
 		if (to_go_b(info, center, is_second))
 		{
 			pb(info);
@@ -79,9 +83,7 @@ static void	divide_first_a_to_b(t_info *info, int is_second)
 				rb(info);
 		}
 		else
-		{
 			ra(info);
-		}
 		i++;
 	}
 }

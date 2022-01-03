@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 17:26:00 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/02 14:22:49 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/03 17:57:46 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,12 @@ void	ss(t_info *info)
 {
 	t_dlst	*new;
 
-	if (info->a_size <= 1 || info->b_size <= 1)
-		return ;
 	new = dlst_new(SS);
 	if (!new)
 		exit(free_all_info(info, TRUE));
 	dlst_addback(&(info->ans), new);
-	swap_last(&(info->a));
-	swap_last(&(info->b));
+	if (info->a_size > 1)
+		swap_last(&(info->a));
+	if (info->b_size > 1)
+		swap_last(&(info->b));
 }

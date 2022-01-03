@@ -6,11 +6,11 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 14:36:53 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/02 14:40:33 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/03 16:48:22 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/checker.h"
 
 void	*free_one(char **s)
 {
@@ -84,31 +84,56 @@ static char	*init_save(char *s)
 	return (s);
 }
 
-char	*get_next_line(int fd)
+char	*get_next_line(t_info *info)
 {
-	static char	*save[FD_MAX] = {NULL};
+	static char	*save = NULL;
 	char		*buff;
 	ssize_t		read_bytes;
 
-	if (fd < 0 || FD_MAX <= fd || BUFFER_SIZE <= 0)
-		return (NULL);
 	buff = (char *)malloc(sizeof(char) * ((size_t)BUFFER_SIZE + 1));
 	if (!buff)
-		return (free_all(&save[fd], &buff));
-	save[fd] = init_save(save[fd]);
+		return (free_all(&save, &buff));
+	save = init_save(save);
 	read_bytes = 1;
-	while (read_bytes && !ft_strchr(save[fd], '\n'))
+	while (read_bytes && !ft_strchr(save, '\n'))
 	{
-		read_bytes = read(fd, buff, BUFFER_SIZE);
+		read_bytes = read(STDIN, buff, BUFFER_SIZE);
 		if (read_bytes == -1)
-			return (free_all(&save[fd], &buff));
+		{
+			free_all(&save, &buff);
+			exit(free_all_info(info, TRUE));
+		}
 		buff[read_bytes] = '\0';
-		save[fd] = join_words(&save[fd], buff);
-		if (!save[fd])
+		save = join_words(&save, buff);
+		if (!save)
 			return (free_one(&buff));
 	}
 	free_one(&buff);
 	if (!read_bytes)
-		return (get_one_line(&save[fd], ft_strlen(save[fd])));
-	return (get_one_line(&save[fd], ft_strchr(save[fd], '\n') - save[fd] + 1));
+		return (get_one_line(&save, ft_strlen(save)));
+	return (get_one_line(&save, ft_strchr(save, '\n') - save + 1));
 }
+
+// int	main(void)
+// {
+// 	int		fd;
+// 	char	*buff;
+
+// 	if ((fd = open("sample1.txt", O_RDONLY)) == -1)
+// 	{
+// 		printf("fopen error(%s)\n", strerror(errno));
+// 		return (0);
+// 	}
+// 	while (1)
+// 	{
+// 		buff = get_next_line(fd);
+// 		printf("answer:%s", buff);
+// 		if (!buff)
+// 			break ;
+// 		free(buff);
+// 	}
+// 	if (buff)
+// 		free(buff);
+// 	close(fd);
+// 	return (0);
+// }

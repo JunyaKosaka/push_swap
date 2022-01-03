@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 17:29:25 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/02 14:22:44 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/03 17:39:26 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,16 @@ void	rrr(t_info *info)
 	if (!new)
 		exit(free_all_info(info, TRUE));
 	dlst_addback(&(info->ans), new);
-	begin = info->a->next;
-	dlst_swap(info->a, begin);
-	info->a = begin;
-	begin = info->b->next;
-	dlst_swap(info->b, begin);
-	info->b = begin;
+	if (info->a_size > 1)
+	{
+		begin = info->a->next;
+		dlst_swap(info->a, begin);
+		info->a = begin;
+	}
+	if (info->b_size > 1)
+	{
+		begin = info->b->next;
+		dlst_swap(info->b, begin);
+		info->b = begin;
+	}
 }

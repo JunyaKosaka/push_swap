@@ -6,7 +6,7 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/25 18:34:44 by jkosaka           #+#    #+#              #
-#    Updated: 2022/01/03 01:16:06 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/01/03 11:22:58 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,8 +34,6 @@ OBJS = $(SRCS:%.c=%.o)
 FLAGS = -Wall -Wextra -Werror
 
 $(NAME) : $(OBJS)
-	make $(FLAGS) -C ../libft
-	cp ../libft/libft.a $(NAME)
 	make $(FLAGS) -C ../utils
 	cp ../utils/libutil.a $(NAME)
 	gcc ${FLAGS} $(SRCS) ../libft/libft.a ../utils/libutil.a -o $(NAME)
