@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/10 14:04:18 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/03 19:51:35 by jkosaka          ###   ########.fr       */
+/*   Created: 2022/01/03 19:26:59 by jkosaka           #+#    #+#             */
+/*   Updated: 2022/01/03 19:49:23 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/checker.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
@@ -27,4 +27,21 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		pt_2++;
 	}
 	return (*pt_1 - *pt_2);
+}
+
+void	*free_one(char **s)
+{
+	if (s)
+	{
+		free(*s);
+		*s = NULL;
+	}
+	return (NULL);
+}
+
+void	*free_all(char **s1, char **s2)
+{
+	free_one(s1);
+	free_one(s2);
+	return (NULL);
 }

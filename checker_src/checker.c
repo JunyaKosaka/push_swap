@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 20:35:28 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/03 17:59:10 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/03 19:23:51 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ int	checker(int argc, char *argv[])
 		command_handler(&info, command);
 		command = get_next_line(&info);
 	}
-	// show(info);
 	judge_ans(&info);
 	return (free_all_info(&info, FALSE));
 }

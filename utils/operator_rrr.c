@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 17:29:25 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/03 17:39:26 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/03 18:12:29 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,6 @@ void	rrr(t_info *info)
 	t_dlst	*new;
 	t_dlst	*begin;
 
-	if (info->a_size == 0 || info->b_size == 0)
-		return ;
 	new = dlst_new(RRR);
 	if (!new)
 		exit(free_all_info(info, TRUE));

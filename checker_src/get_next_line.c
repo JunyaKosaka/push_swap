@@ -6,36 +6,11 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 14:36:53 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/03 16:48:22 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/03 19:33:48 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/checker.h"
-
-void	*free_one(char **s)
-{
-	if (s)
-	{
-		free(*s);
-		*s = NULL;
-	}
-	return (NULL);
-}
-
-static void	*free_all(char **s1, char **s2)
-{
-	if (s1)
-	{
-		free(*s1);
-		*s1 = NULL;
-	}
-	if (s2)
-	{
-		free(*s2);
-		*s2 = NULL;
-	}
-	return (NULL);
-}
 
 static char	*join_words(char **s1, const char *s2)
 {
@@ -84,6 +59,12 @@ static char	*init_save(char *s)
 	return (s);
 }
 
+static int	free_info_and_save(t_info *info, char **s1, char **s2)
+{
+	free_all(s1, s2);
+	return (free_all_info(info, TRUE));
+}
+
 char	*get_next_line(t_info *info)
 {
 	static char	*save = NULL;
@@ -99,10 +80,7 @@ char	*get_next_line(t_info *info)
 	{
 		read_bytes = read(STDIN, buff, BUFFER_SIZE);
 		if (read_bytes == -1)
-		{
-			free_all(&save, &buff);
-			exit(free_all_info(info, TRUE));
-		}
+			exit(free_info_and_save(info, &save, &buff));
 		buff[read_bytes] = '\0';
 		save = join_words(&save, buff);
 		if (!save)
@@ -113,27 +91,3 @@ char	*get_next_line(t_info *info)
 		return (get_one_line(&save, ft_strlen(save)));
 	return (get_one_line(&save, ft_strchr(save, '\n') - save + 1));
 }
-
-// int	main(void)
-// {
-// 	int		fd;
-// 	char	*buff;
-
-// 	if ((fd = open("sample1.txt", O_RDONLY)) == -1)
-// 	{
-// 		printf("fopen error(%s)\n", strerror(errno));
-// 		return (0);
-// 	}
-// 	while (1)
-// 	{
-// 		buff = get_next_line(fd);
-// 		printf("answer:%s", buff);
-// 		if (!buff)
-// 			break ;
-// 		free(buff);
-// 	}
-// 	if (buff)
-// 		free(buff);
-// 	close(fd);
-// 	return (0);
-// }

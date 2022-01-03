@@ -6,7 +6,7 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/25 18:34:44 by jkosaka           #+#    #+#              #
-#    Updated: 2022/01/03 16:41:40 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/01/03 19:29:55 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ HEADERFILE = ../includes/checker.h
 
 SRCS = main.c \
 	checker.c \
-	get_next_line.c
+	get_next_line.c \
+	get_next_line_utils.c
 
 OBJS = $(SRCS:%.c=%.o)
 
@@ -24,8 +25,7 @@ FLAGS = -Wall -Wextra -Werror
 
 $(NAME) : $(OBJS)
 	make $(FLAGS) -C ../utils
-	cp ../utils/libutil.a $(NAME)
-	gcc ${FLAGS} $(SRCS) ../libft/libft.a ../utils/libutil.a -o $(NAME)
+	gcc ${FLAGS} $(SRCS) ../utils/libutil.a -o $(NAME)
 
 all	: $(NAME)
 

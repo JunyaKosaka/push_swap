@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 13:24:02 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/03 17:47:45 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/03 19:15:27 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ int	*convert_to_int(int total_len, char *argv[])
 
 int	is_sorted_info(t_info *info)
 {
-	t_dlst *cur;
 	int		min;
+	t_dlst	*cur;
 
 	if (info->b_size)
 		return (FALSE);

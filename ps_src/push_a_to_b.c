@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 18:02:31 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/03 10:38:23 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/03 19:16:51 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,13 @@ static int	check_two(t_dlst *last, int target)
 
 static void	pb_and_rb(t_info *info, long border, int i, int len)
 {
+	int	b_last2;
+
 	pb(info);
+	b_last2 = dlst_rbegin(info->b)->prev->value;
 	if (i >= len - 5)
 		return ;
-	if (dlst_back(info->b) < border && dlst_rbegin(info->b)->prev->value >= border)
+	if (dlst_back(info->b) < border && b_last2 >= border)
 		rb(info);
 }
 

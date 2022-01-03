@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 17:55:16 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/02 21:12:11 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/03 19:22:50 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static t_dlst	*compress_ans_one(t_info *info)
 	while (old_ans->value != SENTINEL)
 	{
 		new_value = convert(old_ans->value, old_ans->next->value);
-		if (new_value % 3 == 0 && diff(old_ans->value, old_ans->next->value) == 1)
+		if (!(new_value % 3) && diff(old_ans->value, old_ans->next->value) == 1)
 		{
 			if (new_value != PASS)
 				new_ans_addback(info, &new_ans, new_value);

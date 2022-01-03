@@ -6,12 +6,11 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 23:49:06 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/02 17:52:34 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/03 19:17:17 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
 
 static int	two_sort(t_info *info)
 {

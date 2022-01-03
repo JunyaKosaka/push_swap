@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:47:50 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/03 17:17:39 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/03 19:08:46 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <unistd.h>
 # include <limits.h>
 # include <stdlib.h>
-# include <assert.h> // assertを後で消す
 # include <malloc/malloc.h>
 # include "../libft/libft.h"
 

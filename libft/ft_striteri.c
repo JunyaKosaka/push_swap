@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 17:50:34 by jkosaka           #+#    #+#             */
-/*   Updated: 2021/11/06 02:11:34 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/03 19:24:10 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 	while (*s)
 	{
 		(*f)(i, s);
-		i++;	
+		i++;
 		s++;
 	}
 }

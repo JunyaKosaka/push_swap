@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 08:43:12 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/03 15:05:13 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/03 19:52:08 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <string.h>
 # include <limits.h>
 # include <errno.h>
-
 
 typedef struct s_list
 {

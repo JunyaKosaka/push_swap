@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/31 14:25:00 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/03 17:40:30 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/03 19:13:00 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	rr(t_info *info)
 	{
 		last = dlst_rbegin(info->a);
 		dlst_swap(info->a, last);
-		info->a = last;		
+		info->a = last;
 	}
 	if (info->b_size > 1)
 	{
