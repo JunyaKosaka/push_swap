@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 18:02:31 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/04 21:45:45 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/05 02:14:54 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,11 @@ void	push_a_to_b(int len, t_info *info)
 	sum = cal_last_sum(len, info->a);
 	border = set_border(sum, len);
 	i = -1;
-	while (++i < len && info->a_size)
+	while (++i < len && info->a_size && info->target < info->total_len)
 	{
 		check_b(info);
+		if (info->target >= info->total_len)
+			break;
 		if (i < len - 1 && check_two(dlst_rbegin(info->a), info->target))
 			sa_and_ra(info);
 		else if (dlst_back(info->a) == info->target)

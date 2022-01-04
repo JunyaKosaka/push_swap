@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 18:04:13 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/04 09:29:15 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/05 02:09:24 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static int	top_move(t_info *info, int move)
 	{
 		b_last = dlst_back(info->b);
 		a_last2 = dlst_rbegin(info->a)->prev->value;
-		if (dlst_back(info->a) > b_last || dlst_back(info->a) == 0)
+		if (dlst_back(info->a) > b_last || dlst_back(info->a) == 3)
 		{
 			pa(info);
 			move++;
@@ -115,7 +115,7 @@ void	push_b_to_a(t_info *info)
 	int	index;
 
 	move = 0;
-	while (info->b_size)
+	while (info->b_size && info->target < info->total_len)
 	{
 		index = b_target_index(info, info->target);
 		// if (index < (info->b_size - 1) / 2 - 1)
@@ -126,11 +126,13 @@ void	push_b_to_a(t_info *info)
 		pa(info);
 		ra(info);
 		info->target += 1;
-		while (move && dlst_back(info->a) == info->target)
+		while (move && dlst_back(info->a) == info->target && info->target < info->total_len)
 		{
 			ra(info);
 			move--;
 			info->target += 1;
 		}
+		// show(*info);
+		// break;
 	}
 }

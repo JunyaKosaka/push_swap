@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/31 00:16:38 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/04 22:23:29 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/05 02:30:13 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ static void	divide_five_blocks(t_info *info)
 	divide_a_to_b(len, info);
 	set_border_a(info, 4, 5);
 	set_border_b(info, 1, 2);
-	len -= (info->wall)[1] + ((info->wall)[4] - (info->wall)[3]);
+	len -= (info->wall)[1] - (info->wall)[0] + ((info->wall)[4] - (info->wall)[3]);
 	divide_b_to_a(len, info);
 }
 
-static void	solve_five_core(t_info *info)
+static void	line_up(t_info *info)
 {
 	int	i;
 	int	len;
@@ -45,14 +45,28 @@ static void	solve_five_core(t_info *info)
 int	block5_sort(t_info *info)
 {
 	int		len;
+	t_dlst	*cur;
 
 	info->divide = 5;
 	set_wall(info, 2);
+	cur = info->a->next;
+	while (cur->value != SENTINEL)
+	{
+		if (cur->value < 3)
+			cur->value += info->total_len;
+		cur = cur->next;
+	}
+	int	i = -1;
+	while (++i <= info->divide)
+		info->wall[i] += 3;
+	info->target = 3;
 	divide_five_blocks(info);
-	solve_five_core(info);
-	// printf("last %d\n", info->ans->prev->value);
-	// rra(info);
-	// printf("last %d\n", info->ans->prev->value);
+	// show(*info);
+	line_up(info);
+	// printf("@@@@@@@@@@@@@@\n");
+	// show(*info);
+	final_three(info);
+	// show(*info);
 	info->ans = compress_ans(info);
 	// printf("last %d\n", info->ans->prev->value);
 	len = dlst_size(info->ans);
