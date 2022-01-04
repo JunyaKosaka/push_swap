@@ -6,33 +6,37 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/25 18:34:44 by jkosaka           #+#    #+#              #
-#    Updated: 2022/01/03 19:02:41 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/01/04 17:56:44 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-PUSH_SWAP = push_swap
+NAME = push_swap
 CHECKER = checker
 PUSH_SWAP_DIR = ./ps_src
 CHECKER_DIR = ./checker_src
 
-all:
+$(NAME) :
 	make -C $(PUSH_SWAP_DIR)
-	cp $(PUSH_SWAP_DIR)/$(PUSH_SWAP) ./
+	cp $(PUSH_SWAP_DIR)/$(NAME) ./
 
-clean:
+$(CHECKER) :
+	make -C $(CHECKER_DIR)
+	cp $(CHECKER_DIR)/$(CHECKER) ./
+
+all : $(NAME) $(CHECKER)
+
+bonus : $(CHECKER)
+
+clean :
 	make -C $(PUSH_SWAP_DIR) clean;
 	make -C $(CHECKER_DIR) clean;
 
-fclean:
+fclean :
 	make -C $(PUSH_SWAP_DIR) fclean;
-	rm -f $(PUSH_SWAP)
+	rm -f $(NAME)
 	make -C $(CHECKER_DIR) fclean;
 	rm -f $(CHECKER)
 
-re: fclean all
-
-bonus :
-	make -C $(CHECKER_DIR)
-	cp $(CHECKER_DIR)/$(CHECKER) ./	
+re : fclean all
 
 .PHONY: all clean fclean re bonus

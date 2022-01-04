@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 18:04:13 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/03 01:45:25 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/04 09:29:15 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,44 @@ static int	top_move(t_info *info, int move)
 	return (move);
 }
 
+static int	to_go_bottom(t_info *info)
+{
+	int	bottom_dist;
+	int	top_dist;
+	int	last;
+	t_dlst	*cur;
+	int	min;
+
+	bottom_dist = b_target_index(info, info->target) + 1;
+	top_dist = info->b_size - bottom_dist;
+	last = dlst_back(info->b);
+	if (last > dlst_back(info->a))
+		last = dlst_back(info->a);
+	cur = info->b->next;
+	min = last;
+	while (cur->value != info->target)
+	{
+		if (min > cur->value)
+		{
+			bottom_dist--;
+			min = cur->value;
+		}
+		cur = cur->next;
+	}
+	cur = dlst_rbegin(info->b)->prev;
+	min = last;
+	while (cur->value != info->target)
+	{
+		if (min > cur->value)
+		{
+			top_dist--;
+			min = cur->value;
+		}
+		cur = cur->prev;
+	}
+	return (bottom_dist < top_dist - 2);
+}
+
 void	push_b_to_a(t_info *info)
 {
 	int	move;
@@ -80,7 +118,8 @@ void	push_b_to_a(t_info *info)
 	while (info->b_size)
 	{
 		index = b_target_index(info, info->target);
-		if (index < info->b_size / 2 - 1)
+		// if (index < (info->b_size - 1) / 2 - 1)
+		if (to_go_bottom(info))
 			move = bottom_move(info, move);
 		else
 			move = top_move(info, move);
