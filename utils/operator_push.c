@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/31 14:15:36 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/02 14:20:40 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/04 21:16:36 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ void	pa(t_info *info)
 	new = dlst_new(PA);
 	if (!new)
 		exit(free_all_info(info, TRUE));
-	dlst_addback(&(info->ans), new);
+	dlst_pushback(&(info->ans), new);
 	last = dlst_popback(&(info->b));
-	dlst_addback(&(info->a), last);
+	dlst_pushback(&(info->a), last);
 	info->a_size++;
 	info->b_size--;
 }
@@ -39,9 +39,9 @@ void	pb(t_info *info)
 	new = dlst_new(PB);
 	if (!new)
 		exit(free_all_info(info, TRUE));
-	dlst_addback(&(info->ans), new);
+	dlst_pushback(&(info->ans), new);
 	last = dlst_popback(&(info->a));
-	dlst_addback(&(info->b), last);
+	dlst_pushback(&(info->b), last);
 	info->b_size++;
 	info->a_size--;
 }

@@ -6,13 +6,13 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/31 01:55:55 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/02 14:25:03 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/04 21:16:36 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/utils.h"
 
-void	dlst_addback(t_dlst **lst, t_dlst *new)
+void	dlst_pushback(t_dlst **lst, t_dlst *new)
 {
 	t_dlst	*t_begin;
 	t_dlst	*t_last;

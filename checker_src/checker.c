@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 20:35:28 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/04 17:25:45 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/04 21:21:19 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	checker(int argc, char *argv[])
 	result = 0;
 	info.arr = convert_to_int(total_len, argv);
 	if (!(info.arr))
-		exit(error_handler());
+		exit(free_all_info(&info, TRUE));
 	init_stack(total_len, &info);
 	command = get_next_line(&info);
 	while (command)

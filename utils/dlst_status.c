@@ -6,19 +6,11 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/31 00:53:43 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/03 17:12:52 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/04 21:14:29 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/utils.h"
-
-t_dlst	*dlst_rbegin(t_dlst *lst)
-{
-	if (!lst)
-		return (NULL);
-	lst = lst->prev;
-	return (lst);
-}
 
 t_dlst	*dlst_new(int value)
 {
@@ -31,6 +23,14 @@ t_dlst	*dlst_new(int value)
 	ret->next = ret;
 	ret->prev = ret;
 	return (ret);
+}
+
+t_dlst	*dlst_rbegin(t_dlst *lst)
+{
+	if (!lst)
+		return (NULL);
+	lst = lst->prev;
+	return (lst);
 }
 
 /*   not include sentinel   */

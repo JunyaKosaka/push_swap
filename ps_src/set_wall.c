@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/31 00:35:02 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/04 08:07:06 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/04 21:03:08 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,7 @@ static void	set_wall_other(t_info *info, int a_top_index)
 		(info->wall)[i] -= total / (info->divide * 2);
 	i = center;
 	while (++i < info->divide)
-	{
 		(info->wall)[i] += total / (info->divide + 2);
-	}
 }
 
 void	set_wall(t_info *info, int a_top_index)

@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:47:50 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/02 16:57:28 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/04 21:10:45 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include "./utils.h"
 
 /*   ps_src   */
+int		push_swap(int argc, char *argv[]);
 int		ps_sort(t_info *info);
 int		small_size_sort(t_info *info);
 int		block5_sort(t_info *info);

@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 17:55:16 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/03 19:22:50 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/04 21:18:06 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ static int	convert(int x, int y)
 	return ((x + y + 1) / 2 + 1);
 }
 
-void	new_ans_addback(t_info *info, t_dlst **new_ans, int value)
+void	new_ans_pushback(t_info *info, t_dlst **new_ans, int value)
 {
 	t_dlst	*d_new;
 
 	d_new = dlst_new(value);
 	if (!d_new)
 		exit(free_all_info(info, TRUE));
-	dlst_addback(new_ans, d_new);
+	dlst_pushback(new_ans, d_new);
 }
 
 static t_dlst	*compress_ans_one(t_info *info)
@@ -42,7 +42,7 @@ static t_dlst	*compress_ans_one(t_info *info)
 	t_dlst	*old_ans;
 
 	new_ans = NULL;
-	new_ans_addback(info, &new_ans, SENTINEL);
+	new_ans_pushback(info, &new_ans, SENTINEL);
 	old_ans = info->ans->next;
 	while (old_ans->value != SENTINEL)
 	{
@@ -50,13 +50,13 @@ static t_dlst	*compress_ans_one(t_info *info)
 		if (!(new_value % 3) && diff(old_ans->value, old_ans->next->value) == 1)
 		{
 			if (new_value != PASS)
-				new_ans_addback(info, &new_ans, new_value);
+				new_ans_pushback(info, &new_ans, new_value);
 			old_ans = old_ans->next;
 		}
 		else if (old_ans->value == RB && old_ans->next->value == RRB)
 			old_ans = old_ans->next;
 		else
-			new_ans_addback(info, &new_ans, old_ans->value);
+			new_ans_pushback(info, &new_ans, old_ans->value);
 		old_ans = old_ans->next;
 	}
 	dlst_clear(&old_ans);

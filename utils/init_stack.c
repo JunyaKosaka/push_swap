@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/31 00:35:02 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/02 17:45:54 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/04 21:16:36 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ void	init_stack(int total_len, t_info *info)
 		new = dlst_new(*(info->arr + total_len));
 		if (!new)
 			exit(free_all_info(info, TRUE));
-		dlst_addback(&(info->a), new);
+		dlst_pushback(&(info->a), new);
 	}
 }

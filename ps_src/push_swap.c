@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 20:35:28 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/03 01:46:23 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/04 21:10:49 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	push_swap(int argc, char *argv[])
 	total_len = argc - 1;
 	info.arr = convert_to_int(total_len, argv);
 	if (!(info.arr))
-		exit(error_handler());
+		exit(free_all_info(&info, TRUE));
 	compress_arr(total_len, &info);
 	init_stack(total_len, &info);
 	if (is_sorted(total_len, info.arr))
@@ -48,7 +48,5 @@ int	push_swap(int argc, char *argv[])
 	info.ans = compress_ans(&info);
 	show_ans(info.ans);
 	free_all_info(&info, FALSE);
-	if (result == -1)
-		return (error_handler());
 	return (0);
 }

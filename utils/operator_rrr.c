@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 17:29:25 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/03 18:12:29 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/04 21:16:36 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	rra(t_info *info)
 	new = dlst_new(RRA);
 	if (!new)
 		exit(free_all_info(info, TRUE));
-	dlst_addback(&(info->ans), new);
+	dlst_pushback(&(info->ans), new);
 	begin = info->a->next;
 	dlst_swap(info->a, begin);
 	info->a = begin;
@@ -38,7 +38,7 @@ void	rrb(t_info *info)
 	new = dlst_new(RRB);
 	if (!new)
 		exit(free_all_info(info, TRUE));
-	dlst_addback(&(info->ans), new);
+	dlst_pushback(&(info->ans), new);
 	begin = info->b->next;
 	dlst_swap(info->b, begin);
 	info->b = begin;
@@ -52,7 +52,7 @@ void	rrr(t_info *info)
 	new = dlst_new(RRR);
 	if (!new)
 		exit(free_all_info(info, TRUE));
-	dlst_addback(&(info->ans), new);
+	dlst_pushback(&(info->ans), new);
 	if (info->a_size > 1)
 	{
 		begin = info->a->next;
