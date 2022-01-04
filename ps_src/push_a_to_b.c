@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 18:02:31 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/04 01:55:11 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/04 21:45:45 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 static int	check_three(t_dlst *last, int target)
 {
-	t_dlst	*last2;
+	t_dlst	*last3;
 
-	last2 = last->prev;
-	return (last->value == target + 1 && last2->prev->value == target);
+	last3 = last->prev->prev;
+	return (last->value == target + 1 && last3->value == target);
 }
 
 static int	check_two(t_dlst *last, int target)

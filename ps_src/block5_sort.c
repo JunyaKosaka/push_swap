@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/31 00:16:38 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/03 23:04:46 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/04 22:23:29 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,11 @@ int	block5_sort(t_info *info)
 	set_wall(info, 2);
 	divide_five_blocks(info);
 	solve_five_core(info);
+	// printf("last %d\n", info->ans->prev->value);
+	// rra(info);
+	// printf("last %d\n", info->ans->prev->value);
 	info->ans = compress_ans(info);
+	// printf("last %d\n", info->ans->prev->value);
 	len = dlst_size(info->ans);
 	return (len);
 }

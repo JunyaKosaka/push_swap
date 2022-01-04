@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 17:55:16 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/04 21:18:06 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/04 22:24:39 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,10 @@ static t_dlst	*compress_ans_one(t_info *info)
 			old_ans = old_ans->next;
 		}
 		else if (old_ans->value == RB && old_ans->next->value == RRB)
+			old_ans = old_ans->next;
+		else if (old_ans->value == RRB && old_ans->next->value == RB)
+			old_ans = old_ans->next;
+		else if (old_ans->value == RA && old_ans->next->value == RRA)
 			old_ans = old_ans->next;
 		else
 			new_ans_pushback(info, &new_ans, old_ans->value);
