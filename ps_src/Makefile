@@ -6,7 +6,7 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/25 18:34:44 by jkosaka           #+#    #+#              #
-#    Updated: 2022/01/03 23:17:38 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/01/04 21:40:25 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,7 @@ NAME = push_swap
 
 HEADERFILE = ../includes/push_swap.h
 
-SRCS = \
-	main.c \
+SRCS = main.c \
 	push_swap.c \
 	ps_sort.c \
 	small_size_sort.c \

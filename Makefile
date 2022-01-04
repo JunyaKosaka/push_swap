@@ -6,7 +6,7 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/25 18:34:44 by jkosaka           #+#    #+#              #
-#    Updated: 2022/01/04 17:56:44 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/01/04 21:38:58 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,13 +28,13 @@ all : $(NAME) $(CHECKER)
 bonus : $(CHECKER)
 
 clean :
-	make -C $(PUSH_SWAP_DIR) clean;
-	make -C $(CHECKER_DIR) clean;
+	make clean -C $(PUSH_SWAP_DIR)
+	make clean -C $(CHECKER_DIR)
 
 fclean :
-	make -C $(PUSH_SWAP_DIR) fclean;
+	make fclean -C $(PUSH_SWAP_DIR)
 	rm -f $(NAME)
-	make -C $(CHECKER_DIR) fclean;
+	make fclean -C $(CHECKER_DIR)
 	rm -f $(CHECKER)
 
 re : fclean all
