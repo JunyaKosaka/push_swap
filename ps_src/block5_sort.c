@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/31 00:16:38 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/05 02:30:13 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/05 17:29:59 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ static void	divide_five_blocks(t_info *info)
 	divide_a_to_b(len, info);
 	set_border_a(info, 4, 5);
 	set_border_b(info, 1, 2);
-	len -= (info->wall)[1] - (info->wall)[0] + ((info->wall)[4] - (info->wall)[3]);
+	len -= (info->wall)[1] - (info->wall)[0];
+	len -= (info->wall)[4] - (info->wall)[3];
 	divide_b_to_a(len, info);
 }
 
@@ -63,12 +64,8 @@ int	block5_sort(t_info *info)
 	divide_five_blocks(info);
 	// show(*info);
 	line_up(info);
-	// printf("@@@@@@@@@@@@@@\n");
-	// show(*info);
 	final_three(info);
-	// show(*info);
 	info->ans = compress_ans(info);
-	// printf("last %d\n", info->ans->prev->value);
 	len = dlst_size(info->ans);
 	return (len);
 }

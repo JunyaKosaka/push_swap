@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 18:04:13 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/05 02:09:24 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/05 16:57:40 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ static int	to_go_bottom(t_info *info)
 	{
 		if (min > cur->value)
 		{
-			bottom_dist--;
+			bottom_dist -= 1;
 			min = cur->value;
 		}
 		cur = cur->next;
@@ -101,7 +101,7 @@ static int	to_go_bottom(t_info *info)
 	{
 		if (min > cur->value)
 		{
-			top_dist--;
+			top_dist -= 2;
 			min = cur->value;
 		}
 		cur = cur->prev;
@@ -132,7 +132,5 @@ void	push_b_to_a(t_info *info)
 			move--;
 			info->target += 1;
 		}
-		// show(*info);
-		// break;
 	}
 }

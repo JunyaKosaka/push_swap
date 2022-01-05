@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:46:52 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/05 02:17:59 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/05 17:30:18 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	main(int argc, char *argv[])
 // int	main()
 // {
 // 	int		i;
-// 	int		trial = 6000;
+// 	int		trial = 1;
 // 	long	result = 0;
 // 	int		len = 100;
 // 	int		max = 0;
