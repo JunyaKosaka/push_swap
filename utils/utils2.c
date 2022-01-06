@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 13:24:02 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/03 19:15:27 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/06 22:27:22 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,19 @@ int	is_sorted_info(t_info *info)
 		cur = cur->next;
 	}
 	return (TRUE);
+}
+
+int	b_target_index(t_info *info, int target)
+{
+	int		i;
+	t_dlst	*cur;
+
+	i = 0;
+	cur = info->b->next;
+	while (cur->value != target)
+	{
+		cur = cur->next;
+		i++;
+	}
+	return (i);
 }

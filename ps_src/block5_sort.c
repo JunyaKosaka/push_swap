@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/31 00:16:38 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/05 17:29:59 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/06 23:02:03 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,6 @@ int	block5_sort(t_info *info)
 			cur->value += info->total_len;
 		cur = cur->next;
 	}
-	int	i = -1;
-	while (++i <= info->divide)
-		info->wall[i] += 3;
 	info->target = 3;
 	divide_five_blocks(info);
 	// show(*info);

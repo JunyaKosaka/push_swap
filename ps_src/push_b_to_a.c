@@ -6,26 +6,11 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 18:04:13 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/06 22:17:20 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/06 22:56:22 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-static int	b_target_index(t_info *info, int target)
-{
-	int		i;
-	t_dlst	*cur;
-
-	i = 0;
-	cur = info->b->next;
-	while (cur->value != target)
-	{
-		cur = cur->next;
-		i++;
-	}
-	return (i);
-}
 
 static int	bottom_move(t_info *info, int move)
 {
@@ -54,7 +39,7 @@ static int	top_move(t_info *info, int move)
 	{
 		b_last = dlst_back(info->b);
 		a_last2 = dlst_rbegin(info->a)->prev->value;
-		if (dlst_back(info->a) > b_last || dlst_back(info->a) == 3)
+		if (dlst_back(info->a) > b_last || dlst_back(info->a) == LEAD)
 		{
 			pa(info);
 			move++;
@@ -118,7 +103,7 @@ static int	upper_distance(t_info *info, int index)
 		}
 		cur = cur->prev;
 	}
-	return (upper_dist - 1 - info->b_size / 21 - info->b_size / 7); // 変更の余地あり
+	return (upper_dist - 1 - info->b_size / 19 - info->b_size / 7); // 変更の余地あり
 }
 
 void	push_b_to_a(t_info *info)
@@ -137,8 +122,10 @@ void	push_b_to_a(t_info *info)
 		pa(info);
 		ra(info);
 		info->target += 1;
-		while (move && dlst_back(info->a) == info->target && info->target < info->total_len)
+		while (move && dlst_back(info->a) == info->target)
 		{
+			if (info->target >= info->total_len)
+				break ;
 			ra(info);
 			move--;
 			info->target += 1;

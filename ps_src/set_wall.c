@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/31 00:35:02 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/06 21:55:22 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/06 23:01:34 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,8 @@ void	set_wall(t_info *info, int a_top_index)
 
 	i = -1;
 	while (++i < info->divide)
-		(info->wall)[i] = info->total_len / info->divide * i;
-	(info->wall)[info->divide] = info->total_len;
+		(info->wall)[i] = info->total_len / info->divide * i + LEAD;
+	(info->wall)[info->divide] = info->total_len + LEAD;
 	if (info->divide == 5)
 		set_wall_five(info);
 	else

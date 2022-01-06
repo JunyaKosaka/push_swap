@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:58:34 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/05 02:27:57 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/06 23:02:08 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,6 @@ int	deque_sort(t_info *info)
 			cur->value += info->total_len;
 		cur = cur->next;
 	}
-	int	i = -1;
-	while (++i <= info->divide)
-		info->wall[i] += 3;
 	info->target = 3;
 	divide_blocks_dq(info);
 	line_up(info);

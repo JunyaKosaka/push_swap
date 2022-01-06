@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:47:50 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/04 21:16:36 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/06 22:56:36 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # define FALSE 0
 # define WALLMAX 50
 # define SENTINEL -1
+# define LEAD 3
 
 typedef enum e_operator
 {
@@ -64,6 +65,7 @@ typedef struct s_info
 	int		b_size;
 	int		target;
 	int		divide;
+	int		lead;
 	int		total_len;
 }				t_info;
 
@@ -93,6 +95,7 @@ int		is_error(int argc, char *argv[]);
 int		error_handler(void);
 int		*ft_bubble_sort(int n, int *a);
 int		is_sorted_info(t_info *info);
+int		b_target_index(t_info *info, int target);
 t_dlst	*compress_ans(t_info *info);
 void	show_one(t_dlst	*lst);
 void	show_ans(t_dlst	*lst);
