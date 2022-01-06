@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 18:04:13 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/05 20:39:16 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/06 21:59:44 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,44 +71,6 @@ static int	top_move(t_info *info, int move)
 	return (move);
 }
 
-// static int	to_go_bottom(t_info *info)
-// {
-// 	int	lower_dist;
-// 	int	top_dist;
-// 	int	last;
-// 	t_dlst	*cur;
-// 	int	min;
-
-// 	lower_dist = b_target_index(info, info->target) + 1;
-// 	top_dist = info->b_size - lower_dist;
-// 	last = dlst_back(info->b);
-// 	if (last > dlst_back(info->a))
-// 		last = dlst_back(info->a);
-// 	cur = info->b->next;
-// 	min = last;
-// 	while (cur->value != info->target)
-// 	{
-// 		if (min > cur->value)
-// 		{
-// 			lower_dist -= 1;
-// 			min = cur->value;
-// 		}
-// 		cur = cur->next;
-// 	}
-// 	cur = dlst_rbegin(info->b)->prev;
-// 	min = last;
-// 	while (cur->value != info->target)
-// 	{
-// 		if (min > cur->value)
-// 		{
-// 			top_dist -= 2;
-// 			min = cur->value;
-// 		}
-// 		cur = cur->prev;
-// 	}
-// 	return (lower_dist < top_dist - 2);
-// }
-
 static int	lower_distance(t_info *info, int index)
 {
 	int	lower_dist;
@@ -168,8 +130,6 @@ void	push_b_to_a(t_info *info)
 	while (info->b_size && info->target < info->total_len)
 	{
 		index = b_target_index(info, info->target);
-		// if (index < (info->b_size - 1) / 2 - 1)
-		// if (to_go_bottom(info))
 		if (lower_distance(info, index) < upper_distance(info, index))
 			move = bottom_move(info, move);
 		else

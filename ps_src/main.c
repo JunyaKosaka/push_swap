@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:46:52 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/05 20:40:09 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/06 22:01:12 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static int	ps_test_sort(int len, int *arr)
 int	main()
 {
 	int		i;
-	int		trial = 1000;
+	int		trial = 500;
 	long	result = 0;
 	int		len = 100;
 	int		max = 0;

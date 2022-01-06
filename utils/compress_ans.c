@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 17:55:16 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/04 22:24:39 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/06 22:00:36 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ t_dlst	*compress_ans(t_info *info)
 	int	i;
 
 	i = -1;
-	while (++i < 5)
+	while (++i < 10)
 		info->ans = compress_ans_one(info);
 	return (info->ans);
 }
