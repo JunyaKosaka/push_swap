@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 18:04:13 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/06 21:59:44 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/06 22:17:20 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ static int	upper_distance(t_info *info, int index)
 		}
 		cur = cur->prev;
 	}
-	return (upper_dist - 2);
+	return (upper_dist - 1 - info->b_size / 21 - info->b_size / 7); // 変更の余地あり
 }
 
 void	push_b_to_a(t_info *info)
