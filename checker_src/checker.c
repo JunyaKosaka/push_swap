@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 20:35:28 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/04 21:21:19 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/08 03:04:36 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,20 +51,19 @@ static void	judge_ans(t_info *info)
 int	checker(int argc, char *argv[])
 {
 	t_info	info;
-	int		total_len;
-	int		result;
+	// int		total_len;
 	char	*command;
 
 	if (argc == 1)
 		return (0);
 	if (is_error(argc, argv))
 		exit(error_handler());
-	total_len = argc - 1;
-	result = 0;
-	info.arr = convert_to_int(total_len, argv);
+	// total_len = argc - 1;
+	info.total_len = argc - 1;
+	info.arr = convert_to_int(info.total_len, argv);
 	if (!(info.arr))
 		exit(free_all_info(&info, TRUE));
-	init_stack(total_len, &info);
+	init_stack(&info);
 	command = get_next_line(&info);
 	while (command)
 	{

@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:47:50 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/06 22:56:36 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/08 03:02:35 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 # include <unistd.h>
 # include <limits.h>
 # include <stdlib.h>
-# include <malloc/malloc.h>
+# include <malloc/malloc.h> // delete?
+
 # include "../libft/libft.h"
 
 # define STDIN 0
@@ -89,7 +90,7 @@ int		find_index(int n, int *arr, int value);
 int		is_in_border(int border[2], int x);
 int		is_sorted(int total_len, int *arr);
 long	abs_v(long x);
-void	init_stack(int total_len, t_info *info);
+void	init_stack(t_info *info);
 int		*convert_to_int(int total_len, char *argv[]);
 int		is_error(int argc, char *argv[]);
 int		error_handler(void);

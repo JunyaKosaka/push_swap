@@ -6,45 +6,45 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 20:35:28 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/05 01:06:16 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/08 03:07:06 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static void	compress_arr(int total_len, t_info *info)
+static void	compress_arr(t_info *info)
 {
 	int	*sorted_arr;
 	int	i;
 
-	sorted_arr = ft_bubble_sort(total_len, info->arr);
+	sorted_arr = ft_bubble_sort(info->total_len, info->arr);
 	if (!sorted_arr)
 		exit(free_all_info(info, TRUE));
 	i = -1;
-	while (++i < total_len)
-		(info->arr)[i] = find_index(total_len, sorted_arr, (info->arr)[i]);
+	while (++i < info->total_len)
+		(info->arr)[i] = find_index(info->total_len, sorted_arr, (info->arr)[i]);
 	free_int_arr(&sorted_arr);
 }
 
 int	push_swap(int argc, char *argv[])
 {
 	t_info	info;
-	int		total_len;
-	int		result;
+	// int		total_len;
 
 	if (argc == 1)
 		return (0);
 	if (is_error(argc, argv))
 		exit(error_handler());
-	total_len = argc - 1;
-	info.arr = convert_to_int(total_len, argv);
+	// total_len = argc - 1;
+	info.total_len = argc - 1;
+	info.arr = convert_to_int(info.total_len, argv);
 	if (!(info.arr))
 		exit(free_all_info(&info, TRUE));
-	compress_arr(total_len, &info);
-	init_stack(total_len, &info);
-	if (is_sorted(total_len, info.arr))
+	compress_arr(&info);
+	init_stack(&info);
+	if (is_sorted(info.total_len, info.arr))
 		return (free_all_info(&info, FALSE));
-	result = ps_sort(&info);
+	ps_sort(&info);
 	info.ans = compress_ans(&info);
 	show_ans(info.ans);
 	free_all_info(&info, FALSE);

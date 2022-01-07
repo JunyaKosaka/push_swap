@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:58:34 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/06 23:02:08 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/08 03:17:13 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,21 @@ static void	line_up(t_info *info)
 int	deque_sort(t_info *info)
 {
 	int		len;
-	t_dlst	*cur;
+	// t_dlst	*cur;
 
 	info->divide = 5 + 8 * (info->total_len / 220);
 	if (info->divide == 5)
 		info->divide = 13;
 	set_wall(info, 4);
-	cur = info->a->next;
-	while (cur->value != SENTINEL)
-	{
-		if (cur->value < 3)
-			cur->value += info->total_len;
-		cur = cur->next;
-	}
-	info->target = 3;
+	change_lead(info);
+	// cur = info->a->next;
+	// while (cur->value != SENTINEL)
+	// {
+	// 	if (cur->value < 3)
+	// 		cur->value += info->total_len;
+	// 	cur = cur->next;
+	// }
+	// info->target = 3;
 	divide_blocks_dq(info);
 	line_up(info);
 	final_three(info);

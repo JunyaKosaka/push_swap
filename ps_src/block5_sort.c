@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/31 00:16:38 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/06 23:02:03 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/08 03:16:52 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,10 @@ static void	line_up(t_info *info)
 	}
 }
 
-int	block5_sort(t_info *info)
+void	change_lead(t_info *info)
 {
-	int		len;
 	t_dlst	*cur;
-
-	info->divide = 5;
-	set_wall(info, 2);
+	
 	cur = info->a->next;
 	while (cur->value != SENTINEL)
 	{
@@ -58,6 +55,15 @@ int	block5_sort(t_info *info)
 		cur = cur->next;
 	}
 	info->target = 3;
+}
+
+int	block5_sort(t_info *info)
+{
+	int		len;
+
+	info->divide = 5;
+	set_wall(info, 2);
+	change_lead(info);
 	divide_five_blocks(info);
 	// show(*info);
 	line_up(info);

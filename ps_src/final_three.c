@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 22:59:46 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/05 02:05:12 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/08 02:50:40 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,9 @@ static void	zero_move(t_info *info)
 {
 	int	tail;
 	int	a_last2;
-	int	a_last3;
 
 	tail = info->total_len + 2;
 	a_last2 = dlst_rbegin(info->a)->prev->value;
-	a_last3 = dlst_rbegin(info->a)->prev->prev->value;
 	if (dlst_back(info->a) == tail || a_last2 == tail)
 	{
 		pb(info);
