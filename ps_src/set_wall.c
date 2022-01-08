@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/31 00:35:02 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/06 23:01:34 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/09 02:10:41 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	set_wall_five(t_info *info)
 	int	total;
 	int	*wall;
 
-	wall = (info->wall);
+	wall = info->wall;
 	total = info->total_len;
 	if (total > 90)
 	{
@@ -32,7 +32,7 @@ static void	set_wall_21(t_info *info)
 	int	total;
 	int	*wall;
 
-	wall = (info->wall);
+	wall = info->wall;
 	total = info->total_len;
 	wall[4] -= total / 150;
 	wall[8] -= total / 150;
