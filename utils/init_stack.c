@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/31 00:35:02 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/08 03:09:34 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/09 01:54:04 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ void	init_stack(t_info *info)
 	info->b = dlst_new(SENTINEL);
 	info->ans = dlst_new(SENTINEL);
 	if (!(info->a) || !(info->b) || !(info->ans))
-		exit(free_all_info(info, TRUE));
+		exit(free_all_info(info, true));
 	index = info->total_len;
 	while (index--)
 	{
 		new = dlst_new(*(info->arr + index));
 		if (!new)
-			exit(free_all_info(info, TRUE));
+			exit(free_all_info(info, true));
 		dlst_pushback(&(info->a), new);
 	}
 }

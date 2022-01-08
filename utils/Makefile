@@ -6,7 +6,7 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/25 18:34:44 by jkosaka           #+#    #+#              #
-#    Updated: 2022/01/09 00:15:54 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/01/09 01:51:50 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRCS = operator_push.c \
 	show.c \
 	utils.c \
 	utils2.c \
+	utils3.c \
 	dlst_status.c \
 	dlst_function.c \
 	compress_ans.c \

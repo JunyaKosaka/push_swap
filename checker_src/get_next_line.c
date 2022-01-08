@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 14:36:53 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/03 19:33:48 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/09 01:54:04 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static char	*init_save(char *s)
 static int	free_info_and_save(t_info *info, char **s1, char **s2)
 {
 	free_all(s1, s2);
-	return (free_all_info(info, TRUE));
+	return (free_all_info(info, true));
 }
 
 char	*get_next_line(t_info *info)

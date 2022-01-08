@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 13:24:02 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/06 22:27:22 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/09 01:54:41 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,18 @@ int	is_error(int argc, char *argv[])
 			if (j == 0 && ft_strchr("-+", argv[i][j]))
 				continue ;
 			if (!ft_isdigit(argv[i][j]))
-				return (TRUE);
+				return (true);
 		}
 		if (ft_atoi(argv[i]) == LONG_MAX)
-			return (TRUE);
+			return (true);
 		j = 0;
 		while (++j < i)
 		{
 			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
-				return (TRUE);
+				return (true);
 		}
 	}
-	return (FALSE);
+	return (false);
 }
 
 int	*convert_to_int(int total_len, char *argv[])
@@ -67,17 +67,17 @@ int	is_sorted_info(t_info *info)
 	t_dlst	*cur;
 
 	if (info->b_size)
-		return (FALSE);
+		return (false);
 	cur = info->a->next;
 	min = INT_MAX;
 	while (cur->value != SENTINEL)
 	{
 		if (cur->value > min)
-			return (FALSE);
+			return (false);
 		min = cur->value;
 		cur = cur->next;
 	}
-	return (TRUE);
+	return (true);
 }
 
 int	b_target_index(t_info *info, int target)

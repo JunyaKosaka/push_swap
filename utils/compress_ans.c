@@ -6,33 +6,36 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 17:55:16 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/06 22:00:36 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/09 01:54:04 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/utils.h"
-
-static int	diff(int x, int y)
-{
-	if (x > y)
-		return (x - y);
-	else
-		return (y - x);
-}
 
 static int	convert(int x, int y)
 {
 	return ((x + y + 1) / 2 + 1);
 }
 
-void	new_ans_pushback(t_info *info, t_dlst **new_ans, int value)
+static void	new_ans_pushback(t_info *info, t_dlst **new_ans, int value)
 {
 	t_dlst	*d_new;
 
 	d_new = dlst_new(value);
 	if (!d_new)
-		exit(free_all_info(info, TRUE));
+		exit(free_all_info(info, true));
 	dlst_pushback(new_ans, d_new);
+}
+
+static int	can_skip(t_dlst *old_ans)
+{
+	if (old_ans->value == RB && old_ans->next->value == RRB)
+		return (true);
+	else if (old_ans->value == RRB && old_ans->next->value == RB)
+		return (true);
+	else if (old_ans->value == RA && old_ans->next->value == RRA)
+		return (true);
+	return (false);
 }
 
 static t_dlst	*compress_ans_one(t_info *info)
@@ -53,11 +56,7 @@ static t_dlst	*compress_ans_one(t_info *info)
 				new_ans_pushback(info, &new_ans, new_value);
 			old_ans = old_ans->next;
 		}
-		else if (old_ans->value == RB && old_ans->next->value == RRB)
-			old_ans = old_ans->next;
-		else if (old_ans->value == RRB && old_ans->next->value == RB)
-			old_ans = old_ans->next;
-		else if (old_ans->value == RA && old_ans->next->value == RRA)
+		else if (can_skip(old_ans))
 			old_ans = old_ans->next;
 		else
 			new_ans_pushback(info, &new_ans, old_ans->value);

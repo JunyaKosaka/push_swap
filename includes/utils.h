@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:47:50 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/08 03:02:35 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/09 01:54:54 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <limits.h>
 # include <stdlib.h>
+# include <stdbool.h>
 # include <malloc/malloc.h> // delete?
 
 # include "../libft/libft.h"
@@ -24,8 +25,6 @@
 # define STDOUT 1
 # define STDERR 2
 # define ARGMAX 1001
-# define TRUE 1
-# define FALSE 0
 # define WALLMAX 50
 # define SENTINEL -1
 # define LEAD 3
@@ -89,6 +88,7 @@ void	ft_swap(int *x, int *y);
 int		find_index(int n, int *arr, int value);
 int		is_in_border(int border[2], int x);
 int		is_sorted(int total_len, int *arr);
+int		diff(int x, int y);
 long	abs_v(long x);
 void	init_stack(t_info *info);
 int		*convert_to_int(int total_len, char *argv[]);

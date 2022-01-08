@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 17:59:38 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/03 23:09:41 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/09 01:54:41 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ int	is_sorted(int total_len, int *arr)
 	while (i < total_len - 1)
 	{
 		if (arr[i] > arr[i + 1])
-			return (FALSE);
+			return (false);
 		i++;
 	}
-	return (TRUE);
+	return (true);
 }

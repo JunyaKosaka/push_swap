@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 20:35:28 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/09 01:18:45 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/09 01:54:41 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void	command_handler(t_info *info, char *command)
 	else if (!(ft_strncmp("rrr\n", command, 4)))
 		rrr(info);
 	else
-		exit(free_all_info(info, TRUE));
+		exit(free_all_info(info, true));
 }
 
 static void	judge_ans(t_info *info)
@@ -60,7 +60,7 @@ int	checker(int argc, char *argv[])
 	info.total_len = argc - 1;
 	info.arr = convert_to_int(info.total_len, argv);
 	if (!(info.arr))
-		exit(free_all_info(&info, TRUE));
+		exit(free_all_info(&info, true));
 	init_stack(&info);
 	command = get_next_line(&info);
 	while (command)
@@ -71,5 +71,5 @@ int	checker(int argc, char *argv[])
 	}
 	free(command);
 	judge_ans(&info);
-	return (free_all_info(&info, FALSE));
+	return (free_all_info(&info, false));
 }

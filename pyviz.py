@@ -218,6 +218,6 @@ class PsGui:
 
 
 root = Tk()
-root.resizable(width=False, height=False)
+root.resizable(width=false, height=false)
 gui = PsGui(root)
 root.mainloop()

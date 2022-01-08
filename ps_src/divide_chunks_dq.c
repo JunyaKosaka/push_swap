@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   divide_blocks_dq.c                                 :+:      :+:    :+:   */
+/*   divide_chunks_dq.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 23:18:09 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/09 00:06:12 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/09 01:54:41 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ static int	to_go_b(t_info *info, int center, int is_second)
 	int	diff;
 
 	if (is_in_border(info->border_a, dlst_back(info->a)))
-		return (FALSE);
+		return (false);
 	if (is_second)
-		return (TRUE);
+		return (true);
 	i = -1;
 	while (++i < info->divide)
 	{
@@ -29,12 +29,12 @@ static int	to_go_b(t_info *info, int center, int is_second)
 		{
 			diff = abs_v(i - center) % 4;
 			if (diff == 2 || diff == 3)
-				return (TRUE);
+				return (true);
 			else
-				return (FALSE);
+				return (false);
 		}
 	}
-	return (FALSE);
+	return (false);
 }
 
 static int	to_go_bottom_b(t_info *info, int center)
@@ -50,14 +50,14 @@ static int	to_go_bottom_b(t_info *info, int center)
 		{
 			diff = abs_v(i - center) % 4;
 			if (i < 4 && i % 4 >= 2)
-				return (TRUE);
+				return (true);
 			else if (i >= 4 && (diff == 0 || diff == 3))
-				return (TRUE);
+				return (true);
 			else
-				return (FALSE);
+				return (false);
 		}
 	}
-	return (FALSE);
+	return (false);
 }
 
 static void	divide_first_a_to_b(t_info *info, int is_second)
