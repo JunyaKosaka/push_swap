@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 22:59:46 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/08 02:50:40 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/09 01:41:19 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ static void	one_move(t_info *info)
 		sa(info);
 		rra(info);
 	}
-	// tailは一番下
 	if (info->b_size)
 		pa(info);
 	a_last2 = dlst_rbegin(info->a)->prev->value;

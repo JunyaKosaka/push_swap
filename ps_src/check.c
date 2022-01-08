@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_b.c                                          :+:      :+:    :+:   */
+/*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 16:56:17 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/05 02:52:51 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/09 01:37:04 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,17 @@ void	check_b(t_info *info)
 		ra(info);
 		info->target += 1;
 	}
+}
+
+int	check_three(t_dlst *last, int target)
+{
+	t_dlst	*last3;
+
+	last3 = last->prev->prev;
+	return (last->value == target + 1 && last3->value == target);
+}
+
+int	check_two(t_dlst *last, int target)
+{
+	return (last->value == target + 1 && last->prev->value == target);
 }

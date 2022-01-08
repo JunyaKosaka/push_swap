@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:47:50 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/09 00:06:12 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/09 01:37:33 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	divide_b_to_a(int len, t_info *info);
 void	push_a_to_b(int len, t_info *info);
 void	push_b_to_a(t_info *info);
 void	check_b(t_info *info);
+int		check_two(t_dlst *last, int target);
+int		check_three(t_dlst *last, int target);
 void	final_three(t_info *info);
 
 #endif // PUSH_SWAP_H

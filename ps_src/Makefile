@@ -6,7 +6,7 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/25 18:34:44 by jkosaka           #+#    #+#              #
-#    Updated: 2022/01/09 00:16:37 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/01/09 01:36:33 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ SRCS = main.c \
 	divide_ab.c \
 	push_a_to_b.c \
 	push_b_to_a.c \
-	check_b.c \
+	check.c \
 	final_three.c
 
 OBJS = $(SRCS:%.c=%.o)

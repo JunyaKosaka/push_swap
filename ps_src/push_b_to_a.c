@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 18:04:13 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/06 22:56:22 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/09 01:19:57 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,9 @@ static int	top_move(t_info *info, int move)
 
 static int	lower_distance(t_info *info, int index)
 {
-	int	lower_dist;
-	int	last;
-	int	min;
+	int		lower_dist;
+	int		last;
+	int		min;
 	t_dlst	*cur;
 
 	lower_dist = index + 1;
@@ -83,9 +83,9 @@ static int	lower_distance(t_info *info, int index)
 
 static int	upper_distance(t_info *info, int index)
 {
-	int	upper_dist;
-	int	last;
-	int	min;
+	int		upper_dist;
+	int		last;
+	int		min;
 	t_dlst	*cur;
 
 	upper_dist = info->b_size - (index + 1);
@@ -103,7 +103,7 @@ static int	upper_distance(t_info *info, int index)
 		}
 		cur = cur->prev;
 	}
-	return (upper_dist - 1 - info->b_size / 19 - info->b_size / 7); // 変更の余地あり
+	return (upper_dist - 1 - info->b_size / 19 - info->b_size / 7);
 }
 
 void	push_b_to_a(t_info *info)

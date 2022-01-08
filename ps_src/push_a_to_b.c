@@ -6,24 +6,11 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 18:02:31 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/05 02:14:54 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/09 01:40:47 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-static int	check_three(t_dlst *last, int target)
-{
-	t_dlst	*last3;
-
-	last3 = last->prev->prev;
-	return (last->value == target + 1 && last3->value == target);
-}
-
-static int	check_two(t_dlst *last, int target)
-{
-	return (last->value == target + 1 && last->prev->value == target);
-}
 
 static void	pb_and_rb(t_info *info, long border, int i, int len)
 {
@@ -44,6 +31,12 @@ static void	sa_and_ra(t_info *info)
 	info->target += 1;
 }
 
+static void	sa_and_pb_and_rb(t_info *info, long border, int i, int len)
+{
+	sa(info);
+	pb_and_rb(info, border, i, len);
+}
+
 void	push_a_to_b(int len, t_info *info)
 {
 	int		i;
@@ -57,7 +50,7 @@ void	push_a_to_b(int len, t_info *info)
 	{
 		check_b(info);
 		if (info->target >= info->total_len)
-			break;
+			break ;
 		if (i < len - 1 && check_two(dlst_rbegin(info->a), info->target))
 			sa_and_ra(info);
 		else if (dlst_back(info->a) == info->target)
@@ -66,10 +59,7 @@ void	push_a_to_b(int len, t_info *info)
 			info->target += 1;
 		}
 		else if (i < len - 2 && check_three(dlst_rbegin(info->a), info->target))
-		{
-			sa(info);
-			pb_and_rb(info, border, i, len);
-		}
+			sa_and_pb_and_rb(info, border, i, len);
 		else
 			pb_and_rb(info, border, i, len);
 	}

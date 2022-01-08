@@ -6,7 +6,7 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/25 18:34:44 by jkosaka           #+#    #+#              #
-#    Updated: 2022/01/09 00:15:13 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/01/09 01:15:04 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,13 +15,11 @@ CHECKER = checker
 PUSH_SWAP_DIR = ./ps_src
 CHECKER_DIR = ./checker_src
 
-$(NAME) : #./ps_src/*.c
+$(NAME) : empty
 	make -C $(PUSH_SWAP_DIR)
-# cp $(PUSH_SWAP_DIR)/$(NAME) ./
 
-$(CHECKER) :
+$(CHECKER) : empty
 	make -C $(CHECKER_DIR)
-# cp $(CHECKER_DIR)/$(CHECKER) ./
 
 all : $(NAME) $(CHECKER)
 
@@ -31,12 +29,12 @@ clean :
 	make clean -C $(PUSH_SWAP_DIR)
 	make clean -C $(CHECKER_DIR)
 
-fclean :
-	make fclean -C $(PUSH_SWAP_DIR)
+fclean : clean
 	rm -f $(NAME)
-	make fclean -C $(CHECKER_DIR)
 	rm -f $(CHECKER)
 
 re : fclean all
 
-.PHONY: all clean fclean re bonus
+empty : 
+
+.PHONY: all clean fclean re bonus empty

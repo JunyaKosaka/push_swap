@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 23:49:06 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/08 03:19:13 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/09 01:40:03 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	two_sort(t_info *info)
 	return (1);
 }
 
-static int	check_two(t_info *info)
+static int	check_two_top(t_info *info)
 {
 	int	top;
 	int	top2;
@@ -56,7 +56,7 @@ static int	three_sort(t_info *info)
 		ra(info);
 	second = info->a->next->next->value;
 	third = dlst_back(info->a);
-	if (check_two(info))
+	if (check_two_top(info))
 		sa(info);
 	return (dlst_size(info->ans));
 }
@@ -77,10 +77,10 @@ static int	less7_sort(t_info *info)
 	if (dlst_back(info->b) == 0)
 		rb(info);
 	pa(info);
-	if (check_two(info))
+	if (check_two_top(info))
 		sa(info);
 	pa(info);
-	if (check_two(info))
+	if (check_two_top(info))
 		sa(info);
 	info->ans = compress_ans(info);
 	return (dlst_size(info->ans));
@@ -89,7 +89,6 @@ static int	less7_sort(t_info *info)
 int	small_size_sort(t_info *info)
 {
 	int		len;
-	// t_dlst	*cur;
 
 	if (info->total_len == 2)
 		return (two_sort(info));
@@ -100,14 +99,6 @@ int	small_size_sort(t_info *info)
 	info->divide = 3;
 	set_wall(info, 2);
 	change_lead(info);
-	// cur = info->a->next;
-	// while (cur->value != SENTINEL)
-	// {
-	// 	if (cur->value < 3)
-	// 		cur->value += info->total_len;
-	// 	cur = cur->next;
-	// }
-	// info->target = 3;
 	set_border_a(info, 2, 3);
 	set_border_b(info, 1, 2);
 	divide_a_to_b(info->total_len, info);

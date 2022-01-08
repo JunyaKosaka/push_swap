@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 20:20:59 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/08 03:12:52 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/09 01:18:03 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ int	main(int argc, char *argv[])
 		exit(error_handler());
 	else
 		checker(argc, argv);
-	// system("leaks checker");
+	system("leaks checker");
 	return (0);
 }

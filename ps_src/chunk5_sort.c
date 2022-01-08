@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   block5_sort.c                                      :+:      :+:    :+:   */
+/*   chunk5_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/31 00:16:38 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/09 00:04:47 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/09 01:20:28 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void	line_up(t_info *info)
 void	change_lead(t_info *info)
 {
 	t_dlst	*cur;
-	
+
 	cur = info->a->next;
 	while (cur->value != SENTINEL)
 	{
@@ -65,7 +65,6 @@ int	chunk5_sort(t_info *info)
 	set_wall(info, 2);
 	change_lead(info);
 	divide_five_blocks(info);
-	// show(*info);
 	line_up(info);
 	final_three(info);
 	info->ans = compress_ans(info);

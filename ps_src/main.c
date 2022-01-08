@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:46:52 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/09 00:16:14 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/09 01:41:58 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 // 	if (argc > ARGMAX)
 // 		exit(error_handler());
 // 	push_swap(argc, argv);
+// 	system("leaks push_swap");
 // 	return (0);
 // }
 
@@ -65,9 +66,9 @@ static int	ps_test_sort(int len, int *arr)
 int	main()
 {
 	int		i;
-	int		trial = 300;
+	int		trial = 200;
 	long	result = 0;
-	int		len = 100;
+	int		len = 500;
 	int		max = 0;
 	int		min = INT_MAX;
 
