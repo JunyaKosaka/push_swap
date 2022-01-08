@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:47:50 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/08 03:16:46 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/09 00:06:12 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 int		push_swap(int argc, char *argv[]);
 int		ps_sort(t_info *info);
 int		small_size_sort(t_info *info);
-int		block5_sort(t_info *info);
+int		chunk5_sort(t_info *info);
 void	change_lead(t_info *info);
 int		deque_sort(t_info *info);
-void	divide_blocks_dq(t_info *info);
+void	divide_chunks_dq(t_info *info);
 void	set_wall(t_info *info, int a_top_index);
 int		set_border(int sum, int len);
 void	set_border_a(t_info *info, int bottom_i, int top_i);

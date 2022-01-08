@@ -6,11 +6,11 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/25 18:34:44 by jkosaka           #+#    #+#              #
-#    Updated: 2022/01/03 23:19:58 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/01/09 00:07:47 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = checker
+NAME = ../checker
 
 HEADERFILE = ../includes/checker.h
 

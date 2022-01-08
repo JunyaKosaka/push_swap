@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:46:52 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/08 03:19:38 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/09 00:16:14 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ static int	ps_test_sort(int len, int *arr)
 	t_info	info;
 	int		result;
 
-	// total_len = len;
 	info.arr = arr;
 	info.total_len = len;
 	init_stack(&info);
@@ -66,9 +65,9 @@ static int	ps_test_sort(int len, int *arr)
 int	main()
 {
 	int		i;
-	int		trial = 500;
+	int		trial = 300;
 	long	result = 0;
-	int		len = 15;
+	int		len = 100;
 	int		max = 0;
 	int		min = INT_MAX;
 

@@ -6,7 +6,7 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/25 18:34:44 by jkosaka           #+#    #+#              #
-#    Updated: 2022/01/04 21:38:58 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/01/09 00:15:13 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,13 +15,13 @@ CHECKER = checker
 PUSH_SWAP_DIR = ./ps_src
 CHECKER_DIR = ./checker_src
 
-$(NAME) :
+$(NAME) : #./ps_src/*.c
 	make -C $(PUSH_SWAP_DIR)
-	cp $(PUSH_SWAP_DIR)/$(NAME) ./
+# cp $(PUSH_SWAP_DIR)/$(NAME) ./
 
 $(CHECKER) :
 	make -C $(CHECKER_DIR)
-	cp $(CHECKER_DIR)/$(CHECKER) ./
+# cp $(CHECKER_DIR)/$(CHECKER) ./
 
 all : $(NAME) $(CHECKER)
 

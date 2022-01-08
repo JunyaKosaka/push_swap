@@ -6,11 +6,11 @@
 #    By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/25 18:34:44 by jkosaka           #+#    #+#              #
-#    Updated: 2022/01/04 23:00:11 by jkosaka          ###   ########.fr        #
+#    Updated: 2022/01/09 00:16:37 by jkosaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap
+NAME = ../push_swap
 
 HEADERFILE = ../includes/push_swap.h
 
@@ -18,9 +18,9 @@ SRCS = main.c \
 	push_swap.c \
 	ps_sort.c \
 	small_size_sort.c \
-	block5_sort.c \
+	chunk5_sort.c \
 	deque_sort.c \
-	divide_blocks_dq.c \
+	divide_chunks_dq.c \
 	set_wall.c \
 	set_border.c \
 	divide_ab.c \

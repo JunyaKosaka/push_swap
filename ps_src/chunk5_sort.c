@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/31 00:16:38 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/08 03:16:52 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/09 00:04:47 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	change_lead(t_info *info)
 	info->target = 3;
 }
 
-int	block5_sort(t_info *info)
+int	chunk5_sort(t_info *info)
 {
 	int		len;
 
