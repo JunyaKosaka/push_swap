@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:47:50 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/09 01:54:54 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/09 02:12:58 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <limits.h>
 # include <stdlib.h>
 # include <stdbool.h>
-# include <malloc/malloc.h> // delete?
 
 # include "../libft/libft.h"
 
