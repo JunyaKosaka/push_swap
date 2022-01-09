@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/31 00:16:38 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/09 02:08:38 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/09 11:42:12 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,6 @@ void	change_lead(t_info *info)
 
 int	chunk5_sort(t_info *info)
 {
-	int		len;
-
 	info->divide = 5;
 	set_wall(info, 2);
 	change_lead(info);
@@ -68,6 +66,5 @@ int	chunk5_sort(t_info *info)
 	line_up(info);
 	final_three(info);
 	info->ans = compress_ans(info);
-	len = dlst_size(info->ans);
-	return (len);
+	return (dlst_size(info->ans));
 }

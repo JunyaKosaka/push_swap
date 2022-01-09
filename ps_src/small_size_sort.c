@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 23:49:06 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/09 01:40:03 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/09 11:42:04 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ static int	less7_sort(t_info *info)
 
 int	small_size_sort(t_info *info)
 {
-	int		len;
+	int	len;
 
 	if (info->total_len == 2)
 		return (two_sort(info));
@@ -108,6 +108,5 @@ int	small_size_sort(t_info *info)
 	push_b_to_a(info);
 	final_three(info);
 	info->ans = compress_ans(info);
-	len = dlst_size(info->ans);
-	return (len);
+	return (dlst_size(info->ans));
 }
