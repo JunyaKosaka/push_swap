@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 16:56:17 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/09 01:37:04 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/09 10:39:33 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	check_b(t_info *info)
 	}
 }
 
-int	check_three(t_dlst *last, int target)
+bool	check_three(t_dlst *last, int target)
 {
 	t_dlst	*last3;
 
@@ -40,7 +40,7 @@ int	check_three(t_dlst *last, int target)
 	return (last->value == target + 1 && last3->value == target);
 }
 
-int	check_two(t_dlst *last, int target)
+bool	check_two(t_dlst *last, int target)
 {
 	return (last->value == target + 1 && last->prev->value == target);
 }

@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:46:52 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/09 02:11:08 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/09 10:40:31 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	main()
 	int		i;
 	int		trial = 200;
 	long	result = 0;
-	int		len = 500;
+	int		len = 10;
 	int		max = 0;
 	int		min = INT_MAX;
 

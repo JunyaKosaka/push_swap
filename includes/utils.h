@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 19:47:50 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/09 02:12:58 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/09 10:37:28 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,16 +85,16 @@ void	rrr(t_info *info);
 long	cal_last_sum(int len, t_dlst *a);
 void	ft_swap(int *x, int *y);
 int		find_index(int n, int *arr, int value);
-int		is_in_border(int border[2], int x);
-int		is_sorted(int total_len, int *arr);
+bool	is_in_border(int border[2], int x);
+bool	is_sorted(int total_len, int *arr);
 int		diff(int x, int y);
 long	abs_v(long x);
 void	init_stack(t_info *info);
 int		*convert_to_int(int total_len, char *argv[]);
-int		is_error(int argc, char *argv[]);
+bool	is_error(int argc, char *argv[]);
 int		error_handler(void);
 int		*ft_bubble_sort(int n, int *a);
-int		is_sorted_info(t_info *info);
+bool	is_sorted_info(t_info *info);
 int		b_target_index(t_info *info, int target);
 t_dlst	*compress_ans(t_info *info);
 void	show_one(t_dlst	*lst);
@@ -113,7 +113,7 @@ void	dlst_clear(t_dlst **lst);
 void	dlst_swap(t_dlst *a, t_dlst *b);
 
 /*   free   */
-int		free_all_info(t_info *info, int error);
+int		free_all_info(t_info *info, bool error);
 void	*free_int_arr(int **arr);
 
 #endif // UTILS_H

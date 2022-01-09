@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 17:59:38 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/09 01:54:41 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/09 10:35:21 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,12 @@ int	find_index(int n, int *arr, int value)
 	return (-1);
 }
 
-int	is_in_border(int border[2], int x)
+bool	is_in_border(int border[2], int x)
 {
 	return (border[0] <= x && x < border[1]);
 }
 
-int	is_sorted(int total_len, int *arr)
+bool	is_sorted(int total_len, int *arr)
 {
 	int	i;
 

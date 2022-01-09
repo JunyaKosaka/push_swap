@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 19:35:41 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/02 14:25:03 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/09 10:36:47 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	free_info(t_info *info)
 	free_int_arr(&(info->arr));
 }
 
-int	free_all_info(t_info *info, int error)
+int	free_all_info(t_info *info, bool error)
 {
 	if (info)
 		free_info(info);

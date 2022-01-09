@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 13:24:02 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/09 01:54:41 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/09 10:35:53 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ long	abs_v(long x)
 	return (x);
 }
 
-int	is_error(int argc, char *argv[])
+bool	is_error(int argc, char *argv[])
 {
 	int	i;
 	int	j;
@@ -61,7 +61,7 @@ int	*convert_to_int(int total_len, char *argv[])
 	return (ret);
 }
 
-int	is_sorted_info(t_info *info)
+bool	is_sorted_info(t_info *info)
 {
 	int		min;
 	t_dlst	*cur;
