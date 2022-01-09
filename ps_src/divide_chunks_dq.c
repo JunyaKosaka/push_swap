@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 23:18:09 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/09 01:54:41 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/09 11:15:38 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static int	to_go_bottom_b(t_info *info, int center)
 	return (false);
 }
 
-static void	divide_first_a_to_b(t_info *info, int is_second)
+static void	divide_first_a_to_b(t_info *info, bool is_second)
 {
 	int	i;
 	int	center;
@@ -105,8 +105,8 @@ void	divide_chunks_dq(t_info *info)
 	int	center;
 
 	center = (4 + info->divide - 1) / 2;
-	divide_first_a_to_b(info, 0);
-	divide_first_a_to_b(info, 1);
+	divide_first_a_to_b(info, false);
+	divide_first_a_to_b(info, true);
 	diff = 4;
 	while (center - diff >= 2)
 	{

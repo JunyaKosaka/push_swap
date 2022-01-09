@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 01:00:59 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/09 10:34:02 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/09 11:02:06 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,14 @@ void	divide_b_to_a(int len, t_info *info)
 	{
 		if (is_in_border(info->border_b, dlst_back(info->b)))
 			rb(info);
+		else if (i < len - 3 && check_b_four(info))
+		{
+			pa(info);
+			pa(info);
+			ra(info);
+			ra(info);
+			i++;
+		}
 		else
 		{
 			pa(info);

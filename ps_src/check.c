@@ -6,7 +6,7 @@
 /*   By: jkosaka <jkosaka@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 16:56:17 by jkosaka           #+#    #+#             */
-/*   Updated: 2022/01/09 10:39:33 by jkosaka          ###   ########.fr       */
+/*   Updated: 2022/01/09 11:11:28 by jkosaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,11 @@ void	check_b(t_info *info)
 	}
 }
 
+bool	check_two(t_dlst *last, int target)
+{
+	return (last->value == target + 1 && last->prev->value == target);
+}
+
 bool	check_three(t_dlst *last, int target)
 {
 	t_dlst	*last3;
@@ -40,7 +45,22 @@ bool	check_three(t_dlst *last, int target)
 	return (last->value == target + 1 && last3->value == target);
 }
 
-bool	check_two(t_dlst *last, int target)
+/*   pa pa ra ra rb rb -> pa pa rr rr   */
+bool	check_b_four(t_info *info)
 {
-	return (last->value == target + 1 && last->prev->value == target);
+	t_dlst	*target;
+
+	target = dlst_rbegin(info->b);
+	if (!(is_in_border(info->border_a, target->value)))
+		return (false);
+	target = target->prev;
+	if (!(is_in_border(info->border_a, target->value)))
+		return (false);
+	target = target->prev;
+	if (!(is_in_border(info->border_b, target->value)))
+		return (false);
+	target = target->prev;
+	if (!(is_in_border(info->border_b, target->value)))
+		return (false);
+	return (true);
 }
